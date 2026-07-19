@@ -54,7 +54,7 @@ export function Services() {
                 initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: (i % 3) * 0.12, ease: [0.25, 1, 0.5, 1] }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.12, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
                 className="glow-border glass group relative rounded-2xl p-7 cursor-pointer"
               >

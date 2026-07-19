@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Logo } from "./Logo";
 
@@ -16,7 +16,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-const menuItemVariants = {
+const menuItemVariants: Variants = {
   closed: { opacity: 0, x: -20, filter: "blur(4px)" },
   open: (i: number) => ({
     opacity: 1,
@@ -25,7 +25,7 @@ const menuItemVariants = {
     transition: {
       delay: 0.05 + i * 0.06,
       duration: 0.4,
-      ease: [0.25, 1, 0.5, 1],
+      ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
     },
   }),
   exit: (i: number) => ({
@@ -82,7 +82,7 @@ export function Navbar() {
         <motion.div
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           className="glass rounded-2xl flex items-center justify-between px-4 sm:px-6 py-3"
         >
           <Link href="/" className="group flex items-center gap-2">
@@ -163,7 +163,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: -16, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -16, scale: 0.97 }}
-              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
               className="lg:hidden mt-2 rounded-2xl overflow-hidden border border-border shadow-2xl"
               style={{ background: "rgba(10, 13, 31, 0.97)" }}
             >

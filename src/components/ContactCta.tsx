@@ -132,7 +132,7 @@ export function ContactCta() {
               initial={{ opacity: 0, y: 30, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.96 }}
-              transition={{ duration: 0.25, ease: [0.25, 1, 0.5, 1] }}
+              transition={{ duration: 0.25, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
               onClick={(e) => e.stopPropagation()}
               className="glass relative w-full max-w-lg rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
               style={{ background: "rgba(10, 13, 31, 0.92)" }}

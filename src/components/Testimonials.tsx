@@ -64,7 +64,7 @@ export function Testimonials() {
               initial={{ opacity: 0, x: 40 * direction, filter: "blur(4px)" }}
               animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, x: -40 * direction, filter: "blur(4px)" }}
-              transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+              transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
             >
               <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-xl mx-auto">
                 &ldquo;{current.review}&rdquo;

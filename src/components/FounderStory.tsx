@@ -71,7 +71,7 @@ export function FounderStory() {
               initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 1, 0.5, 1] }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
               className="glass scroll-mt-28 rounded-3xl p-6 sm:p-10"
             >
               <div className="flex items-center gap-4">

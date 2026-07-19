@@ -49,7 +49,7 @@ export function Stats() {
               initial={{ opacity: 0, y: 24, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.25, 1, 0.5, 1] }}
+              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="glass rounded-2xl px-6 py-8 text-center group relative overflow-hidden"
             >

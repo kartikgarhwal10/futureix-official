@@ -1,23 +1,23 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring, Variants } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-const container = {
+const container: Variants = {
   hidden: {},
   show: {
     transition: { staggerChildren: 0.14, delayChildren: 0.3 },
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
   show: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   },
 };
 
