@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npx --yes create-next-app@latest futureix-tmp --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npm install *)",
+      "Bash(ls .claude)",
+      "Bash(cat .claude/launch.json)",
+      "Bash(node -e \"const m=require\\('lucide-react'\\); console.log\\(Object.keys\\(m\\).filter\\(k=>/insta|linked|twit|you|face|search|bot|clap|layout|megaphone|code2/i.test\\(k\\)\\)\\)\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
