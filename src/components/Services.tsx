@@ -11,6 +11,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { services } from "@/data/services";
+import { SectionTag } from "@/components/SectionTag";
 
 const icons: Record<string, LucideIcon> = {
   Megaphone,
@@ -36,12 +37,12 @@ export function Services() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-neon-cyan">
-            Our Services
-          </span>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
+          <div className="flex justify-center">
+            <SectionTag number="01" label="Our Services" />
+          </div>
+          <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
             Powerful Digital Solutions For{" "}
-            <span className="text-gradient">Modern Businesses</span>
+            <span className="font-accent text-signal">Modern Businesses</span>
           </h2>
         </motion.div>
 
@@ -59,7 +60,7 @@ export function Services() {
                 className="glow-border glass group relative rounded-2xl p-7 cursor-pointer"
               >
                 <motion.div
-                  className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                  className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary shadow-[3px_3px_0_0_rgba(13,13,10,0.9)]"
                   whileHover={{ rotate: 5, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -72,7 +73,7 @@ export function Services() {
                 <ul className="mt-4 space-y-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-xs text-muted">
-                      <span className="h-1.5 w-1.5 rounded-full bg-neon-cyan/80 group-hover:bg-neon-cyan group-hover:shadow-[0_0_6px_rgba(34,211,238,0.5)] transition-all duration-300" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-signal/70 group-hover:bg-signal transition-all duration-300" />
                       {feature}
                     </li>
                   ))}

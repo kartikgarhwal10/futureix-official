@@ -1,12 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { SectionTag } from "@/components/SectionTag";
 
 const stories = [
   {
     id: "kartik-garhwal",
     name: "Meet the Founder – Kartik Garhwal",
     initials: "KG",
+    photo: "/founders/kartik-garhwal.jpg",
     location: "Jaipur, Rajasthan",
     paragraphs: [
       "Every successful company begins with a vision. For FUTUREIX, that vision belongs to Kartik Garhwal, a passionate entrepreneur from Jaipur, Rajasthan, who believes that technology and digital skills should create real opportunities for everyone.",
@@ -26,6 +29,7 @@ const stories = [
     id: "mritunjay-pratap-singh",
     name: "Meet the Co-Founder – Mritunjay Pratap Singh",
     initials: "MS",
+    photo: "/founders/mritunjay-pratap-singh.jpg",
     location: "Uttar Pradesh",
     paragraphs: [
       "Behind every great vision is a strong partner who shares the same passion for growth and innovation. Mritunjay Pratap Singh, the Co-Founder of FUTUREIX, comes from Uttar Pradesh and has always been driven by a desire to solve problems through technology and creativity.",
@@ -55,11 +59,11 @@ export function FounderStory() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-neon-cyan">
-            Our Story
-          </span>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-            The People Behind <span className="text-gradient">FUTUREIX</span>
+          <div className="flex justify-center">
+            <SectionTag number="05" label="Our Story" />
+          </div>
+          <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+            The People Behind <span className="font-accent text-signal">FUTUREIX</span>
           </h2>
         </motion.div>
 
@@ -75,16 +79,26 @@ export function FounderStory() {
               className="glass scroll-mt-28 rounded-3xl p-6 sm:p-10"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-primary shadow-[0_0_25px_rgba(59,130,246,0.3)]">
-                  <span className="font-display text-lg font-bold text-white">
-                    {story.initials}
-                  </span>
+                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-primary shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] overflow-hidden">
+                  {story.photo ? (
+                    <Image
+                      src={story.photo}
+                      alt={story.name}
+                      fill
+                      sizes="56px"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span className="font-display text-lg font-bold text-white">
+                      {story.initials}
+                    </span>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-semibold tracking-tight">
                     {story.name}
                   </h3>
-                  <p className="text-sm text-neon-cyan mt-0.5 font-medium">{story.location}</p>
+                  <p className="text-sm text-signal mt-0.5 font-medium">{story.location}</p>
                 </div>
               </div>
 
@@ -94,7 +108,7 @@ export function FounderStory() {
                 ))}
               </div>
 
-              <blockquote className="mt-5 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm sm:text-base font-medium text-foreground">
+              <blockquote className="mt-5 rounded-2xl border border-black/10 bg-black/[0.03] px-5 py-4 text-sm sm:text-base font-medium text-foreground">
                 {story.mission}
               </blockquote>
 
@@ -104,7 +118,7 @@ export function FounderStory() {
                 ))}
               </div>
 
-              <p className="mt-6 font-display text-lg sm:text-xl font-semibold text-gradient">
+              <p className="font-accent mt-6 text-xl sm:text-2xl text-signal">
                 &ldquo;{story.quote}&rdquo;
               </p>
             </motion.article>

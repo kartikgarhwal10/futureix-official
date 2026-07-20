@@ -5,6 +5,7 @@ export type Course = {
   duration: string;
   level: string;
   price: string;
+  thumbnail: "meta-ads" | "google-ads" | "website-dev" | "landing-page" | "video-editing" | "ai-saas";
 };
 
 export const courses: Course[] = [
@@ -15,6 +16,7 @@ export const courses: Course[] = [
     duration: "6 Weeks",
     level: "Beginner to Advanced",
     price: "₹4,999",
+    thumbnail: "meta-ads",
   },
   {
     slug: "google-ads-mastery",
@@ -23,6 +25,7 @@ export const courses: Course[] = [
     duration: "5 Weeks",
     level: "Beginner to Advanced",
     price: "₹4,499",
+    thumbnail: "google-ads",
   },
   {
     slug: "website-development-course",
@@ -31,6 +34,7 @@ export const courses: Course[] = [
     duration: "10 Weeks",
     level: "Beginner to Pro",
     price: "₹7,999",
+    thumbnail: "website-dev",
   },
   {
     slug: "landing-page-building-course",
@@ -39,6 +43,7 @@ export const courses: Course[] = [
     duration: "4 Weeks",
     level: "Intermediate",
     price: "₹3,999",
+    thumbnail: "landing-page",
   },
   {
     slug: "video-editing-course",
@@ -47,6 +52,7 @@ export const courses: Course[] = [
     duration: "6 Weeks",
     level: "Beginner to Advanced",
     price: "₹5,499",
+    thumbnail: "video-editing",
   },
   {
     slug: "ai-saas-development-course",
@@ -55,5 +61,6 @@ export const courses: Course[] = [
     duration: "8 Weeks",
     level: "Intermediate to Pro",
     price: "₹8,999",
+    thumbnail: "ai-saas",
   },
 ];

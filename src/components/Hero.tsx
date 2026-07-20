@@ -75,14 +75,14 @@ export function Hero() {
           style={{ x: orbX, y: orbY2 }}
           className="absolute left-[8%] bottom-[-10%] h-[22rem] w-[22rem] rounded-full bg-neon-cyan/15 blur-[100px]"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(20,21,31,0.07)_1px,transparent_0)] bg-[size:40px_40px]" />
       </div>
 
       {floatingShapes.map((shape, i) => (
         <motion.div
           key={i}
           aria-hidden
-          className={`pointer-events-none absolute rounded-full bg-gradient-to-br ${shape.color} backdrop-blur-sm border border-white/5`}
+          className={`pointer-events-none absolute rounded-full bg-gradient-to-br ${shape.color} backdrop-blur-sm border border-black/5`}
           style={{
             width: shape.size,
             height: shape.size,
@@ -112,31 +112,23 @@ export function Hero() {
       >
         <motion.div
           variants={item}
-          className="glass mx-auto mb-8 inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm text-muted border border-white/10"
+          className="glass mx-auto mb-8 inline-flex items-center gap-2 rounded-full px-5 py-2 font-mono-label text-xs uppercase text-muted border border-black/10"
         >
           <motion.span
             animate={{ rotate: [0, 15, -15, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Sparkles size={14} className="text-neon-cyan" />
+            <Sparkles size={14} className="text-signal" />
           </motion.span>
           Future-ready AI &amp; Digital Growth Partner
         </motion.div>
 
         <motion.h1
           variants={item}
-          className="font-display text-4xl sm:text-6xl lg:text-7xl font-semibold leading-[1.08] tracking-tight"
+          className="font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight"
         >
           Build Your Future With{" "}
-          <span className="text-gradient relative">
-            AI, Technology
-            <motion.span
-              aria-hidden
-              className="absolute -inset-1 rounded-lg bg-gradient-to-r from-electric-blue/10 to-purple/10 blur-xl"
-              animate={{ opacity: [0.3, 0.6, 0.3] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </span>{" "}
+          <span className="font-accent text-signal">AI, Technology</span>{" "}
           &amp; Digital Growth
         </motion.h1>
 
@@ -155,7 +147,7 @@ export function Hero() {
             onClick={() => scrollToSection("services")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-white shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-shadow duration-300 hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] cursor-pointer"
+            className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-white shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] transition-shadow duration-300 hover:shadow-[6px_6px_0_0_rgba(13,13,10,0.9)] cursor-pointer"
           >
             Explore Services
             <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -177,9 +169,9 @@ export function Hero() {
           {["Fast Delivery", "AI Powered", "Result Driven"].map((tag) => (
             <span
               key={tag}
-              className="flex items-center gap-1.5 text-xs text-muted"
+              className="flex items-center gap-1.5 font-mono-label text-xs uppercase text-muted"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-neon-cyan animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse" />
               {tag}
             </span>
           ))}

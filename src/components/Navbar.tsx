@@ -74,7 +74,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`fixed top-9 inset-x-0 z-50 transition-all duration-500 ${
         scrolled ? "py-2" : "py-4"
       }`}
     >
@@ -95,10 +95,10 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNav(e, link.href)}
-                className="relative px-3 py-2 text-sm text-muted hover:text-foreground transition-colors group"
+                className="relative px-3 py-2 font-mono-label text-xs uppercase text-muted hover:text-foreground transition-colors group"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-gradient-to-r from-electric-blue to-purple rounded-full transition-all duration-300 group-hover:w-3/4" />
+                <span className="absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-signal rounded-full transition-all duration-300 group-hover:w-3/4" />
               </a>
             ))}
           </nav>
@@ -107,7 +107,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={(e) => handleNav(e, "#contact")}
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-medium text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.55)]"
+              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background shadow-[3px_3px_0_0_var(--lime)] transition-all duration-300 hover:scale-105 hover:shadow-[4px_4px_0_0_var(--lime)]"
             >
               Get Started
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
@@ -165,7 +165,7 @@ export function Navbar() {
               exit={{ opacity: 0, y: -16, scale: 0.97 }}
               transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
               className="lg:hidden mt-2 rounded-2xl overflow-hidden border border-border shadow-2xl"
-              style={{ background: "rgba(10, 13, 31, 0.97)" }}
+              style={{ background: "rgba(255, 255, 255, 0.98)" }}
             >
               <div className="relative overflow-hidden">
                 <div
@@ -191,7 +191,7 @@ export function Navbar() {
                       whileTap={{ scale: 0.97, x: 4 }}
                       className="group relative rounded-xl px-4 py-3 text-base font-medium text-muted transition-colors hover:text-foreground"
                     >
-                      <span className="absolute inset-0 rounded-xl bg-white/0 transition-all duration-300 group-hover:bg-white/[0.04]" />
+                      <span className="absolute inset-0 rounded-xl bg-black/0 transition-all duration-300 group-hover:bg-black/[0.04]" />
                       <span className="relative flex items-center justify-between">
                         {link.label}
                         <ArrowRight
@@ -213,7 +213,7 @@ export function Navbar() {
                     <a
                       href="#contact"
                       onClick={(e) => handleNav(e, "#contact")}
-                      className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-gradient-primary px-5 py-3.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] active:scale-95"
+                      className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-foreground px-5 py-3.5 text-sm font-semibold text-background shadow-[3px_3px_0_0_var(--lime)] transition-all duration-300 hover:shadow-[4px_4px_0_0_var(--lime)] active:scale-95"
                     >
                       Get Started
                       <ArrowRight size={16} />

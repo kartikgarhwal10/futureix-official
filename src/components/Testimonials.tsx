@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
+import { SectionTag } from "@/components/SectionTag";
 
 export function Testimonials() {
   const [index, setIndex] = useState(0);
@@ -38,11 +39,11 @@ export function Testimonials() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-neon-cyan">
-            Testimonials
-          </span>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-            What Our <span className="text-gradient">Clients Say</span>
+          <div className="flex justify-center">
+            <SectionTag number="06" label="Testimonials" />
+          </div>
+          <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+            What Our <span className="font-accent text-signal">Clients Say</span>
           </h2>
         </motion.div>
 
@@ -55,7 +56,7 @@ export function Testimonials() {
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Quote size={32} className="text-neon-cyan/60 mb-6" />
+            <Quote size={32} className="text-signal/70 mb-6" />
           </motion.div>
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -109,13 +110,10 @@ export function Testimonials() {
               whileHover={{ scale: 1.3 }}
             >
               <motion.div
-                className="h-2 rounded-full"
-                animate={{
-                  width: i === index ? 28 : 8,
-                  background: i === index
-                    ? "linear-gradient(135deg, #3b82f6, #7c3aed)"
-                    : "rgba(255,255,255,0.15)",
-                }}
+                className={`h-2 rounded-full ${
+                  i === index ? "bg-gradient-primary" : "bg-foreground/15"
+                }`}
+                animate={{ width: i === index ? 28 : 8 }}
                 transition={{ duration: 0.3 }}
               />
             </motion.button>

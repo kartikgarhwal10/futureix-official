@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaLinkedinIn } from "react-icons/fa6";
+import { SectionTag } from "@/components/SectionTag";
 
 const founders = [
   {
@@ -9,6 +11,7 @@ const founders = [
     role: "Founder & CEO",
     bio: "Passionate about technology, digital marketing, and creating innovative solutions that help businesses grow in the digital era.",
     initials: "KG",
+    photo: "/founders/kartik-garhwal.jpg",
     storyId: "kartik-garhwal",
   },
   {
@@ -16,6 +19,7 @@ const founders = [
     role: "Co-Founder",
     bio: "Focuses on innovation, strategy, and building impactful digital experiences.",
     initials: "MS",
+    photo: "/founders/mritunjay-pratap-singh.jpg",
     storyId: "mritunjay-pratap-singh",
   },
 ];
@@ -35,11 +39,11 @@ export function FoundersTeaser() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-neon-cyan">
-            Our Team
-          </span>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-            Meet <span className="text-gradient">The Founders</span>
+          <div className="flex justify-center">
+            <SectionTag number="04" label="Our Team" />
+          </div>
+          <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+            Meet <span className="font-accent text-signal">The Founders</span>
           </h2>
         </motion.div>
 
@@ -59,21 +63,31 @@ export function FoundersTeaser() {
                 className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 h-32 w-32 rounded-full bg-gradient-to-br from-electric-blue/20 to-purple/20 blur-[40px] transition-opacity duration-500 group-hover:opacity-100 opacity-50"
               />
               <motion.div
-                className="relative mx-auto mb-6 h-24 w-24 rounded-full bg-gradient-primary flex items-center justify-center shadow-[0_0_25px_rgba(59,130,246,0.3)]"
+                className="relative mx-auto mb-6 h-24 w-24 rounded-full bg-gradient-primary flex items-center justify-center shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] overflow-hidden"
                 whileHover={{ scale: 1.08 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <span className="font-display text-2xl font-bold text-white">
-                  {founder.initials}
-                </span>
+                {founder.photo ? (
+                  <Image
+                    src={founder.photo}
+                    alt={founder.name}
+                    fill
+                    sizes="96px"
+                    className="object-cover"
+                  />
+                ) : (
+                  <span className="font-display text-2xl font-bold text-white">
+                    {founder.initials}
+                  </span>
+                )}
               </motion.div>
               <h3 className="font-display text-xl font-semibold">{founder.name}</h3>
-              <p className="text-sm text-neon-cyan mt-1 font-medium">{founder.role}</p>
+              <p className="text-sm text-signal mt-1 font-medium">{founder.role}</p>
               <p className="mt-4 text-sm text-muted leading-relaxed">{founder.bio}</p>
               <div className="mt-5 flex items-center justify-center gap-3">
                 <a
                   href={`#${founder.storyId}`}
-                  className="text-xs font-semibold text-neon-cyan hover:text-electric-blue-light transition-colors"
+                  className="text-xs font-semibold text-signal hover:text-foreground transition-colors"
                 >
                   Read Full Story →
                 </a>

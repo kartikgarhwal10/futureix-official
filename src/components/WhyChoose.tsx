@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Compass, Target, Wrench, Users } from "lucide-react";
+import { SectionTag } from "@/components/SectionTag";
 
 const items = [
   {
@@ -41,11 +42,11 @@ export function WhyChoose() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-neon-cyan">
-            Why Us
-          </span>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-            Why Choose <span className="text-gradient">FUTUREIX?</span>
+          <div className="flex justify-center">
+            <SectionTag number="03" label="Why Us" />
+          </div>
+          <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+            Why Choose <span className="font-accent text-signal">FUTUREIX?</span>
           </h2>
         </motion.div>
 

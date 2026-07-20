@@ -6,9 +6,9 @@ export function Logo({ className }: { className?: string }) {
       <svg viewBox="0 0 64 64" className="h-full w-auto" aria-hidden>
         <defs>
           <linearGradient id="fx-gradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="55%" stopColor="#22d3ee" />
-            <stop offset="100%" stopColor="#a855f7" />
+            <stop offset="0%" stopColor="#ff4423" />
+            <stop offset="55%" stopColor="#cbff3d" />
+            <stop offset="100%" stopColor="#0d0d0a" />
           </linearGradient>
         </defs>
         <path
@@ -25,8 +25,8 @@ export function Logo({ className }: { className?: string }) {
           opacity="0.9"
         />
       </svg>
-      <span className="font-display font-semibold tracking-wide text-lg text-foreground">
-        FUTURE<span className="text-gradient">IX</span>
+      <span className="font-display tracking-wide text-lg text-foreground">
+        FUTURE<span className="text-signal">IX</span>
       </span>
     </span>
   );

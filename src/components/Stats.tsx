@@ -31,9 +31,9 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   }, [inView, value]);
 
   return (
-    <span ref={ref} className="font-display text-4xl sm:text-5xl font-bold text-gradient">
+    <span ref={ref} className="font-display text-4xl sm:text-5xl text-foreground">
       {display}
-      {suffix}
+      <span className="text-signal">{suffix}</span>
     </span>
   );
 }

@@ -1,3 +1,4 @@
+import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1 relative">
       <ParticleField />
+      <AnnouncementBar />
       <Navbar />
       <main className="flex-1 relative z-10">
         <Hero />

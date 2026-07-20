@@ -1,12 +1,13 @@
 import Link from "next/link";
+import { Mail, MapPin } from "lucide-react";
 import { FaInstagram, FaLinkedinIn, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import { Logo } from "./Logo";
 
 const quickLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Courses", href: "/courses" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Courses", href: "/#courses" },
+  { label: "About", href: "/#founders" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socials = [
@@ -27,10 +28,23 @@ export function Footer() {
               A futuristic AI-powered digital company combining technology, education, and
               business growth.
             </p>
+            <div className="mt-5 space-y-2.5">
+              <a
+                href="mailto:hello@futureix.in"
+                className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors"
+              >
+                <Mail size={14} className="text-signal shrink-0" />
+                hello@futureix.in
+              </a>
+              <p className="flex items-center gap-2 text-sm text-muted">
+                <MapPin size={14} className="text-signal shrink-0" />
+                Jaipur, Rajasthan, India
+              </p>
+            </div>
           </div>
 
           <div>
-            <h4 className="font-display text-sm font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-mono-label text-xs uppercase tracking-widest mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -42,8 +56,19 @@ export function Footer() {
             </ul>
           </div>
 
+          <div className="max-w-[200px]">
+            <h4 className="font-mono-label text-xs uppercase tracking-widest mb-4">Support</h4>
+            <a
+              href="mailto:customersupportteam@futureix.in"
+              className="flex items-start gap-2 text-sm text-muted hover:text-foreground transition-colors break-all"
+            >
+              <Mail size={14} className="text-signal shrink-0 mt-0.5" />
+              customersupportteam@futureix.in
+            </a>
+          </div>
+
           <div>
-            <h4 className="font-display text-sm font-semibold mb-4">Follow Us</h4>
+            <h4 className="font-mono-label text-xs uppercase tracking-widest mb-4">Follow Us</h4>
             <div className="flex gap-3">
               {socials.map((social) => (
                 <a

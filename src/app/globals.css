@@ -1,20 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #05060f;
-  --background-elevated: #0a0d1f;
-  --foreground: #f5f7ff;
-  --muted: #9199b8;
-  --border: rgba(255, 255, 255, 0.08);
+  --background: #efe8d8;
+  --background-elevated: #e4dac0;
+  --foreground: #0d0d0a;
+  --muted: #6a6a5f;
+  --border: rgba(13, 13, 10, 0.16);
 
-  --electric-blue: #3b82f6;
-  --electric-blue-light: #60a5fa;
-  --neon-cyan: #22d3ee;
-  --purple: #7c3aed;
-  --purple-light: #a855f7;
+  --ink: #0d0d0a;
+  --lime: #cbff3d;
+  --lime-dark: #9fd400;
+  --signal: #ff4423;
+  --signal-light: #ff7a52;
 
-  --gradient-primary: linear-gradient(135deg, var(--electric-blue) 0%, var(--purple) 100%);
-  --gradient-glow: linear-gradient(135deg, var(--neon-cyan) 0%, var(--electric-blue) 50%, var(--purple-light) 100%);
+  /* Legacy token names kept so existing component classes keep working,
+     remapped to the new editorial palette. */
+  --electric-blue: var(--signal);
+  --electric-blue-light: var(--signal-light);
+  --neon-cyan: var(--lime);
+  --purple: var(--ink);
+  --purple-light: #2b2b26;
+
+  --gradient-primary: linear-gradient(135deg, var(--signal) 0%, var(--ink) 100%);
+  --gradient-glow: linear-gradient(135deg, var(--lime) 0%, var(--signal) 65%, var(--ink) 100%);
 }
 
 @theme inline {
@@ -28,8 +36,12 @@
   --color-neon-cyan: var(--neon-cyan);
   --color-purple: var(--purple);
   --color-purple-light: var(--purple-light);
+  --color-lime: var(--lime);
+  --color-signal: var(--signal);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
+  --font-accent: var(--font-accent);
+  --font-mono: var(--font-mono);
 }
 
 * {
@@ -44,10 +56,26 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  background-image: radial-gradient(circle at 1px 1px, rgba(13, 13, 10, 0.08) 1px, transparent 0);
+  background-size: 28px 28px;
 }
 
 .font-display {
   font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .text-gradient {
@@ -61,11 +89,11 @@ body {
   background: var(--gradient-primary);
 }
 
+/* Flat, hard-edged "agency" card — no blur, no soft glow. */
 .glass {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border);
+  background: var(--background);
+  border: 1.5px solid var(--foreground);
+  box-shadow: 5px 5px 0 0 rgba(13, 13, 10, 0.9);
 }
 
 .glow-border {
@@ -77,7 +105,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1px;
+  padding: 1.5px;
   background: var(--gradient-glow);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -91,6 +119,31 @@ body {
   opacity: 1;
 }
 
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+  font-family: var(--font-mono);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -100,7 +153,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--background-elevated);
+  background: var(--foreground);
   border-radius: 999px;
   border: 2px solid var(--background);
 }
