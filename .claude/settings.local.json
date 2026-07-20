@@ -18,7 +18,8 @@
       "Read(//c/Users/ASUS/AppData/Local/Temp/**)",
       "Bash(ls -la \"/c/Users/ASUS/Downloads/1718171384175.jpg\" \"/c/Users/ASUS/Downloads/ChatGPT Image Jul 20, 2026, 11_24_57 AM.png\" \"/c/Users/ASUS/Downloads/file_00000000796471f8bbc3084f39834a68.png\" 2>/dev/null)",
       "Bash(mkdir -p \"/d/futureix.in website claude project/public/founders\" && cp \"/c/Users/ASUS/Downloads/1718171384175.jpg\" \"/d/futureix.in website claude project/public/founders/kartik-garhwal.jpg\" && ls -la \"/d/futureix.in website claude project/public/founders/\")",
-      "Bash(git status *)"
+      "Bash(git status *)",
+      "Bash(kill %1)"
     ]
   }
 }

@@ -26,10 +26,84 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["500", "600"],
 });
 
+const siteUrl = "https://futureix.in";
+const siteTitle = "FUTUREIX — Digital Marketing Agency & AI Courses in Jaipur, Rajasthan";
+const siteDescription =
+  "FUTUREIX is a Jaipur-based digital growth agency offering Meta Ads, Google Ads, website development, and AI SaaS solutions, plus expert-led courses in digital marketing, web development, and AI. Book a free consultation today.";
+
 export const metadata: Metadata = {
-  title: "FUTUREIX — Build Your Future With AI, Technology & Digital Growth",
-  description:
-    "FUTUREIX helps businesses grow digitally with AI solutions, digital marketing and web development, and empowers individuals with future-ready skills through expert-led courses.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: "%s · FUTUREIX",
+  },
+  description: siteDescription,
+  keywords: [
+    "digital marketing agency Jaipur",
+    "Meta Ads management",
+    "Google Ads agency India",
+    "website development company Rajasthan",
+    "AI SaaS solutions",
+    "digital marketing course Jaipur",
+    "web development course India",
+    "FUTUREIX",
+  ],
+  authors: [{ name: "FUTUREIX" }],
+  creator: "FUTUREIX",
+  publisher: "FUTUREIX",
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "FUTUREIX",
+    title: siteTitle,
+    description: siteDescription,
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "FUTUREIX",
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.ico`,
+  image: `${siteUrl}/opengraph-image`,
+  description: siteDescription,
+  email: "hello@futureix.in",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Jaipur",
+    addressRegion: "Rajasthan",
+    addressCountry: "IN",
+  },
+  founder: [
+    { "@type": "Person", name: "Kartik Garhwal" },
+    { "@type": "Person", name: "Mritunjay Pratap Singh" },
+  ],
+  sameAs: [
+    "https://instagram.com",
+    "https://linkedin.com",
+    "https://youtube.com",
+    "https://twitter.com",
+  ],
 };
 
 export default function RootLayout({
@@ -43,6 +117,10 @@ export default function RootLayout({
       className={`${manrope.variable} ${archivo.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {children}
       </body>
     </html>
