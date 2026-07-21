@@ -28,7 +28,8 @@
       "Bash(/c/Python314/python)",
       "Bash(/c/Python314/python -c ' *)",
       "Bash(mv logo-compact.png logo-mark.png)",
-      "Bash(mv logo-full.png logo-full-lockup.png)"
+      "Bash(mv logo-full.png logo-full-lockup.png)",
+      "Bash(/c/Python314/python -c \"import scipy; print\\('ok'\\)\")"
     ]
   }
 }
