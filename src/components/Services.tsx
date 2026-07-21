@@ -24,7 +24,7 @@ const icons: Record<string, LucideIcon> = {
 
 export function Services() {
   return (
-    <section id="services" className="relative py-24 scroll-mt-24">
+    <section id="services" className="relative py-24 scroll-mt-24 overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute right-[-15%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-purple/10 blur-[140px]"

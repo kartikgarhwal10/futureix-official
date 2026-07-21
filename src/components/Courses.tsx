@@ -8,7 +8,7 @@ import { CourseThumbnail } from "@/components/CourseThumbnail";
 
 export function Courses() {
   return (
-    <section id="courses" className="relative py-24 scroll-mt-24">
+    <section id="courses" className="relative py-24 scroll-mt-24 overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute left-[-10%] top-[20%] h-[28rem] w-[28rem] rounded-full bg-electric-blue/10 blur-[130px]"
