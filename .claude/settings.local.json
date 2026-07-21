@@ -19,7 +19,16 @@
       "Bash(ls -la \"/c/Users/ASUS/Downloads/1718171384175.jpg\" \"/c/Users/ASUS/Downloads/ChatGPT Image Jul 20, 2026, 11_24_57 AM.png\" \"/c/Users/ASUS/Downloads/file_00000000796471f8bbc3084f39834a68.png\" 2>/dev/null)",
       "Bash(mkdir -p \"/d/futureix.in website claude project/public/founders\" && cp \"/c/Users/ASUS/Downloads/1718171384175.jpg\" \"/d/futureix.in website claude project/public/founders/kartik-garhwal.jpg\" && ls -la \"/d/futureix.in website claude project/public/founders/\")",
       "Bash(git status *)",
-      "Bash(kill %1)"
+      "Bash(kill %1)",
+      "Bash(curl -sI https://www.futureix.in/)",
+      "Bash(curl -sI https://futureix.in/)",
+      "Bash(/c/Python314/python -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(/c/Python314/python --version)",
+      "Bash(/c/Python314/python -m pip install --quiet numpy)",
+      "Bash(/c/Python314/python)",
+      "Bash(/c/Python314/python -c ' *)",
+      "Bash(mv logo-compact.png logo-mark.png)",
+      "Bash(mv logo-full.png logo-full-lockup.png)"
     ]
   }
 }

@@ -1,6 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
-import { FaInstagram, FaLinkedinIn, FaYoutube, FaXTwitter } from "react-icons/fa6";
+import { AnimatePresence, motion } from "framer-motion";
+import { Mail, MapPin, X } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
 import { Logo } from "./Logo";
 
 const quickLinks = [
@@ -11,13 +15,21 @@ const quickLinks = [
 ];
 
 const socials = [
-  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
-  { icon: FaXTwitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: FaFacebookF, href: "https://www.facebook.com/profile.php?id=61591765726522", label: "Facebook" },
+  { icon: FaInstagram, href: "https://www.instagram.com/futureix.in/", label: "Instagram" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/futureix-in/about/?viewAsMember=true", label: "LinkedIn" },
+  { icon: FaYoutube, href: "https://youtube.com", label: "YouTube", comingSoon: true },
 ];
 
 export function Footer() {
+  const [showYoutubeToast, setShowYoutubeToast] = useState(false);
+
+  useEffect(() => {
+    if (!showYoutubeToast) return;
+    const id = setTimeout(() => setShowYoutubeToast(false), 5000);
+    return () => clearTimeout(id);
+  }, [showYoutubeToast]);
+
   return (
     <footer className="relative border-t border-border py-14 mt-auto">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -74,10 +86,16 @@ export function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={social.comingSoon ? undefined : "_blank"}
+                  rel={social.comingSoon ? undefined : "noopener noreferrer"}
                   aria-label={social.label}
-                  className="glass flex h-10 w-10 items-center justify-center rounded-full hover:scale-105 transition-transform"
+                  onClick={(e) => {
+                    if (social.comingSoon) {
+                      e.preventDefault();
+                      setShowYoutubeToast(true);
+                    }
+                  }}
+                  className="glass flex h-10 w-10 items-center justify-center rounded-full hover:scale-105 transition-transform cursor-pointer"
                 >
                   <social.icon size={16} />
                 </a>
@@ -90,6 +108,32 @@ export function Footer() {
           © FUTUREIX. All Rights Reserved.
         </div>
       </div>
+
+      <AnimatePresence>
+        {showYoutubeToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.25, ease: [0.25, 1, 0.5, 1] }}
+            className="glass fixed bottom-6 left-1/2 z-[70] w-[92%] max-w-md -translate-x-1/2 rounded-2xl p-5"
+          >
+            <button
+              type="button"
+              onClick={() => setShowYoutubeToast(false)}
+              aria-label="Dismiss"
+              className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full text-muted hover:text-foreground cursor-pointer"
+            >
+              <X size={14} />
+            </button>
+            <p className="pr-6 text-sm text-foreground leading-relaxed">
+              👋 We&apos;re not on YouTube yet, but very soon! 🎬 Stay tuned — in the
+              meantime, feel free to check out our other social media handles. Thank
+              you so much for stopping by! 🙌
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }

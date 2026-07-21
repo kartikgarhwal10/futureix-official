@@ -87,7 +87,7 @@ const structuredData = {
   "@type": "LocalBusiness",
   name: "FUTUREIX",
   url: siteUrl,
-  logo: `${siteUrl}/favicon.ico`,
+  logo: `${siteUrl}/logo-full-lockup.png`,
   image: `${siteUrl}/opengraph-image`,
   description: siteDescription,
   email: "hello@futureix.in",
@@ -102,10 +102,10 @@ const structuredData = {
     { "@type": "Person", name: "Mritunjay Pratap Singh" },
   ],
   sameAs: [
-    "https://instagram.com",
-    "https://linkedin.com",
+    "https://www.facebook.com/profile.php?id=61591765726522",
+    "https://www.instagram.com/futureix.in/",
+    "https://www.linkedin.com/company/futureix-in/about/?viewAsMember=true",
     "https://youtube.com",
-    "https://twitter.com",
   ],
 };
 
