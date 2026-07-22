@@ -6,6 +6,7 @@ export type Course = {
   level: string;
   price: string;
   thumbnail: "meta-ads" | "google-ads" | "website-dev" | "landing-page" | "video-editing" | "ai-saas";
+  badges?: string[];
 };
 
 export const courses: Course[] = [
@@ -24,7 +25,7 @@ export const courses: Course[] = [
     topics: ["Search Campaigns", "Keyword Research", "Conversion Tracking"],
     duration: "5 Weeks",
     level: "Beginner to Advanced",
-    price: "₹4,499",
+    price: "₹5,999",
     thumbnail: "google-ads",
   },
   {
@@ -62,5 +63,20 @@ export const courses: Course[] = [
     level: "Intermediate to Pro",
     price: "₹8,999",
     thumbnail: "ai-saas",
+  },
+  {
+    slug: "ai-development-engineering-course",
+    title: "AI Development Engineering",
+    topics: [
+      "Machine Learning Foundations",
+      "AI Model Development",
+      "AI Agents & Automation",
+      "Real-World AI Projects",
+    ],
+    duration: "12 Weeks",
+    level: "Beginner to Pro",
+    price: "₹49,999",
+    thumbnail: "ai-saas",
+    badges: ["100% Placement", "US & UK Certification"],
   },
 ];

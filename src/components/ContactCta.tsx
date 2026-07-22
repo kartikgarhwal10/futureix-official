@@ -128,7 +128,13 @@ export function ContactCta() {
             </a>
             <span className="flex items-center gap-2">
               <MapPin size={15} className="text-signal" />
-              Jaipur, Rajasthan, India
+              <span className="font-semibold text-foreground">Head Office:</span> Jaipur,
+              Rajasthan, India
+            </span>
+            <span className="flex items-center gap-2">
+              <MapPin size={15} className="text-signal" />
+              <span className="font-semibold text-foreground">Branch Office:</span> Haidergarh,
+              Barabanki, UP
             </span>
           </div>
         </motion.div>

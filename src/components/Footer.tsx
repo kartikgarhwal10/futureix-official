@@ -48,10 +48,20 @@ export function Footer() {
                 <Mail size={14} className="text-signal shrink-0" />
                 hello@futureix.in
               </a>
-              <p className="flex items-center gap-2 text-sm text-muted">
-                <MapPin size={14} className="text-signal shrink-0" />
-                Jaipur, Rajasthan, India
-              </p>
+              <div className="flex items-start gap-2 text-sm text-muted">
+                <MapPin size={14} className="text-signal shrink-0 mt-0.5" />
+                <span>
+                  <span className="font-semibold text-foreground">Head Office:</span> Jaipur,
+                  Rajasthan, India
+                </span>
+              </div>
+              <div className="flex items-start gap-2 text-sm text-muted">
+                <MapPin size={14} className="text-signal shrink-0 mt-0.5" />
+                <span>
+                  <span className="font-semibold text-foreground">Branch Office:</span> Haidergarh,
+                  Barabanki, Uttar Pradesh
+                </span>
+              </div>
             </div>
           </div>
 

@@ -49,6 +49,18 @@ export function Courses() {
                 </div>
               </div>
               <div className="flex flex-1 flex-col p-6">
+                {course.badges && course.badges.length > 0 && (
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {course.badges.map((badge) => (
+                      <span
+                        key={badge}
+                        className="inline-flex items-center rounded-full bg-lime px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-foreground"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <ul className="space-y-2">
                   {course.topics.map((topic) => (
                     <li key={topic} className="flex items-center gap-2 text-xs text-muted">
