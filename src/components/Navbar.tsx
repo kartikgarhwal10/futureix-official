@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import { Logo } from "./Logo";
 
 const navLinks = [
@@ -47,6 +48,8 @@ function scrollToSection(href: string) {
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -69,7 +72,11 @@ export function Navbar() {
   const handleNav = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     setOpen(false);
-    setTimeout(() => scrollToSection(href), 100);
+    if (pathname !== "/") {
+      router.push("/" + href);
+    } else {
+      setTimeout(() => scrollToSection(href), 100);
+    }
   };
 
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin, MessageCircle, Send, X } from "lucide-react";
 import { services } from "@/data/services";
@@ -273,6 +274,17 @@ export function ContactCta() {
                   <MessageCircle size={16} />
                   Send via WhatsApp
                 </motion.button>
+                <p className="mt-4 text-[11px] text-muted text-center leading-relaxed">
+                  By submitting this inquiry, you agree to our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    onClick={() => setIsOpen(false)}
+                    className="text-signal hover:underline font-semibold"
+                  >
+                    Privacy Policy
+                  </Link>
+                  .
+                </p>
               </form>
             </motion.div>
           </motion.div>

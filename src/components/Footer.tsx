@@ -114,8 +114,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-6 text-center text-xs text-muted">
-          © FUTUREIX. All Rights Reserved.
+        <div className="mt-12 border-t border-border pt-6 flex flex-col items-center justify-between gap-4 sm:flex-row text-xs text-muted">
+          <p>© FUTUREIX. All Rights Reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy-policy" className="hover:text-foreground underline transition-colors">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
 
