@@ -107,7 +107,7 @@ const structuredData = {
     "https://www.facebook.com/profile.php?id=61591765726522",
     "https://www.instagram.com/futureix.in/",
     "https://www.linkedin.com/company/futureix-in/about/?viewAsMember=true",
-    "https://youtube.com",
+    "https://www.youtube.com/@DigitalAdsIo-o7c/videos",
   ],
 };
 
