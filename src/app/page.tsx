@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
 import { Services } from "@/components/Services";
-import { Courses } from "@/components/Courses";
+import { Blogs } from "@/components/Blogs";
 import { WhyChoose } from "@/components/WhyChoose";
 import { FoundersTeaser } from "@/components/FoundersTeaser";
 import { FounderStory } from "@/components/FounderStory";
@@ -23,7 +23,7 @@ export default function Home() {
         <Hero />
         <Stats />
         <Services />
-        <Courses />
+        <Blogs />
         <WhyChoose />
         <FoundersTeaser />
         <FounderStory />

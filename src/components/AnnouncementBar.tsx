@@ -3,7 +3,7 @@
 const messages = [
   "Free digital growth consultation this week",
   "New: AI SaaS Solutions now live",
-  "500+ students trained across 6 future-ready courses",
+  "Explore our latest blogs & growth articles",
 ];
 
 export function AnnouncementBar() {

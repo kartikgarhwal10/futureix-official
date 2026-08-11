@@ -25,8 +25,8 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Aditya Menon",
-    company: "Student, Meta Ads Mastery",
+    company: "Founder, TrendCart Direct",
     review:
-      "The course was practical and to the point. I landed my first freelance client within three weeks of finishing it.",
+      "The insights from their marketing articles and growth strategies helped us optimize our ad spend and boost conversions by 140%.",
   },
 ];

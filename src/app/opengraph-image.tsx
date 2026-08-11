@@ -52,7 +52,7 @@ export default async function OpengraphImage() {
             color: "#cbff3d",
           }}
         >
-          Digital Marketing · Web Development · AI Courses — Jaipur, Rajasthan
+          Digital Marketing · Web Development · AI Solutions · Blogs &amp; Articles
         </div>
       </div>
     ),

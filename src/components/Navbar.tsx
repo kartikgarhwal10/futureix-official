@@ -10,7 +10,7 @@ import { Logo } from "./Logo";
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "Services", href: "#services" },
-  { label: "Courses", href: "#courses" },
+  { label: "Blogs & Articles", href: "#blogs" },
   { label: "Why Us", href: "#why-choose" },
   { label: "Founders", href: "#founders" },
   { label: "Testimonials", href: "#testimonials" },

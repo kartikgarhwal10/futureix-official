@@ -27,9 +27,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = "https://futureix.in";
-const siteTitle = "FUTUREIX — Digital Marketing Agency & AI Courses in Jaipur, Rajasthan";
+const siteTitle = "FUTUREIX — Digital Marketing Agency & AI Solutions in Jaipur, Rajasthan";
 const siteDescription =
-  "FUTUREIX is a Jaipur-based digital growth agency offering Meta Ads, Google Ads, website development, and AI SaaS solutions, plus expert-led courses in digital marketing, web development, and AI. Book a free consultation today.";
+  "FUTUREIX is a Jaipur-based digital growth agency offering Meta Ads, Google Ads, website development, AI SaaS solutions, and actionable blogs & articles on digital growth and technology. Book a free consultation today.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     "Google Ads agency India",
     "website development company Rajasthan",
     "AI SaaS solutions",
-    "digital marketing course Jaipur",
-    "web development course India",
+    "digital marketing blogs",
+    "AI and technology articles",
     "FUTUREIX",
   ],
   authors: [{ name: "FUTUREIX" }],

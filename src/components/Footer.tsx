@@ -9,7 +9,7 @@ import { Logo } from "./Logo";
 
 const quickLinks = [
   { label: "Services", href: "/#services" },
-  { label: "Courses", href: "/#courses" },
+  { label: "Blogs & Articles", href: "/#blogs" },
   { label: "About", href: "/#founders" },
   { label: "Contact", href: "/#contact" },
 ];

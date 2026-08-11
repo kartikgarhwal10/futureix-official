@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 const stats = [
   { value: 100, suffix: "+", label: "Projects Completed", icon: "🚀" },
   { value: 50, suffix: "+", label: "Happy Clients", icon: "🤝" },
-  { value: 500, suffix: "+", label: "Students", icon: "🎓" },
+  { value: 50, suffix: "+", label: "Articles & Guides", icon: "📚" },
   { value: 10, suffix: "+", label: "Digital Solutions", icon: "⚡" },
 ];
 

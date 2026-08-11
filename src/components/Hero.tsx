@@ -153,12 +153,12 @@ export function Hero() {
             <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
           </motion.button>
           <motion.button
-            onClick={() => scrollToSection("courses")}
+            onClick={() => scrollToSection("blogs")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             className="glow-border glass inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold text-foreground cursor-pointer"
           >
-            View Courses
+            Explore Blogs &amp; Articles
           </motion.button>
         </motion.div>
 
