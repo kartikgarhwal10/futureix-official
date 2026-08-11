@@ -5,25 +5,27 @@ import "./globals.css";
 const manrope = Manrope({
   variable: "--font-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const archivo = Archivo({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
+  display: "swap",
 });
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-accent",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: "400",
   style: ["italic", "normal"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  display: "swap",
 });
 
 const siteUrl = "https://futureix.in";
