@@ -196,17 +196,19 @@ export default function PrivacyPolicy() {
                   <strong className="text-foreground">Email:</strong>{" "}
                   <a href="mailto:hello@futureix.in" className="text-signal hover:underline">
                     hello@futureix.in
-                  </a>{" "}
-                  /{" "}
-                  <a href="mailto:customersupportteam@futureix.in" className="text-signal hover:underline">
-                    customersupportteam@futureix.in
                   </a>
                 </p>
                 <p>
-                  <strong className="text-foreground">Head Office Address:</strong> Jaipur, Rajasthan, India
+                  <strong className="text-foreground">Phone / WhatsApp:</strong>{" "}
+                  <a href="https://wa.me/917355024385" target="_blank" rel="noopener noreferrer" className="text-signal hover:underline">
+                    +91 73550 24385
+                  </a>
                 </p>
                 <p>
-                  <strong className="text-foreground">Branch Office Address:</strong> Haidergarh, Barabanki, Uttar Pradesh, India
+                  <strong className="text-foreground">Head Office Address:</strong> Haidergarh, Barabanki, Uttar Pradesh, India
+                </p>
+                <p>
+                  <strong className="text-foreground">Branch Office Address:</strong> Jaipur, Rajasthan, India
                 </p>
               </div>
             </section>

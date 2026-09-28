@@ -5,8 +5,7 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { WHATSAPP_LINK, WHATSAPP_LINK_2 } from "@/lib/whatsapp";
 
 const buttons = [
-  { href: WHATSAPP_LINK, label: "Chat on WhatsApp (+91 95091 09332)", bottom: "bottom-6", delay: 2 },
-  { href: WHATSAPP_LINK_2, label: "Chat on WhatsApp (+91 73550 24385)", bottom: "bottom-24", delay: 2.3 },
+  { href: WHATSAPP_LINK, label: "Chat on WhatsApp (+91 73550 24385)", bottom: "bottom-6", delay: 2 },
 ];
 
 export function WhatsAppButton() {

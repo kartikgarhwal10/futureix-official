@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Mail, MapPin, MessageCircle, Send, X } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone, Send, X } from "lucide-react";
 import { services } from "@/data/services";
 import { buildWhatsAppLink, WHATSAPP_LINK } from "@/lib/whatsapp";
 import { SectionTag } from "@/components/SectionTag";
@@ -127,15 +127,24 @@ export function ContactCta() {
               <Mail size={15} className="text-signal" />
               hello@futureix.in
             </a>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-foreground transition-colors"
+            >
+              <Phone size={15} className="text-signal" />
+              +91 73550 24385
+            </a>
             <span className="flex items-center gap-2">
               <MapPin size={15} className="text-signal" />
-              <span className="font-semibold text-foreground">Head Office:</span> Jaipur,
-              Rajasthan, India
+              <span className="font-semibold text-foreground">Head Office:</span> Haidergarh,
+              Barabanki, UP
             </span>
             <span className="flex items-center gap-2">
               <MapPin size={15} className="text-signal" />
-              <span className="font-semibold text-foreground">Branch Office:</span> Haidergarh,
-              Barabanki, UP
+              <span className="font-semibold text-foreground">Branch Office:</span> Jaipur,
+              Rajasthan, India
             </span>
           </div>
         </motion.div>

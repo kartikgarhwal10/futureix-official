@@ -10,6 +10,7 @@ import { Logo } from "./Logo";
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "Services", href: "#services" },
+  { label: "Work From Home", href: "#wfh", badge: "₹3,000" },
   { label: "Blogs & Articles", href: "#blogs" },
   { label: "Why Us", href: "#why-choose" },
   { label: "Founders", href: "#founders" },
@@ -102,9 +103,14 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNav(e, link.href)}
-                className="relative px-3 py-2 font-mono-label text-xs uppercase text-muted hover:text-foreground transition-colors group"
+                className="relative px-3 py-2 font-mono-label text-xs uppercase text-muted hover:text-foreground transition-colors group flex items-center gap-1.5"
               >
                 {link.label}
+                {link.badge && (
+                  <span className="rounded-full bg-signal px-1.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-tight">
+                    {link.badge}
+                  </span>
+                )}
                 <span className="absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-signal rounded-full transition-all duration-300 group-hover:w-3/4" />
               </a>
             ))}
@@ -200,7 +206,14 @@ export function Navbar() {
                     >
                       <span className="absolute inset-0 rounded-xl bg-black/0 transition-all duration-300 group-hover:bg-black/[0.04]" />
                       <span className="relative flex items-center justify-between">
-                        {link.label}
+                        <span className="flex items-center gap-2">
+                          {link.label}
+                          {link.badge && (
+                            <span className="rounded-full bg-signal px-2 py-0.5 text-[10px] font-bold text-white">
+                              {link.badge}
+                            </span>
+                          )}
+                        </span>
                         <ArrowRight
                           size={14}
                           className="opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-60 group-hover:translate-x-0"

@@ -8,7 +8,7 @@ import { SectionTag } from "@/components/SectionTag";
 const founders = [
   {
     name: "Kartik Garhwal",
-    role: "Founder & CEO",
+    role: "Co-Founder & CEO",
     bio: "Passionate about technology, digital marketing, and creating innovative solutions that help businesses grow in the digital era.",
     initials: "KG",
     photo: "/founders/kartik-garhwal.jpg",

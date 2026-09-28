@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
 import { Logo } from "./Logo";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 
 const quickLinks = [
   { label: "Services", href: "/#services" },
+  { label: "Work From Home (₹3,000)", href: "/#wfh" },
   { label: "Blogs & Articles", href: "/#blogs" },
   { label: "About", href: "/#founders" },
   { label: "Contact", href: "/#contact" },
@@ -38,18 +40,27 @@ export function Footer() {
                 <Mail size={14} className="text-signal shrink-0" />
                 hello@futureix.in
               </a>
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors"
+              >
+                <Phone size={14} className="text-signal shrink-0" />
+                +91 73550 24385
+              </a>
               <div className="flex items-start gap-2 text-sm text-muted">
                 <MapPin size={14} className="text-signal shrink-0 mt-0.5" />
                 <span>
-                  <span className="font-semibold text-foreground">Head Office:</span> Jaipur,
-                  Rajasthan, India
+                  <span className="font-semibold text-foreground">Head Office:</span> Haidergarh,
+                  Barabanki, Uttar Pradesh
                 </span>
               </div>
               <div className="flex items-start gap-2 text-sm text-muted">
                 <MapPin size={14} className="text-signal shrink-0 mt-0.5" />
                 <span>
-                  <span className="font-semibold text-foreground">Branch Office:</span> Haidergarh,
-                  Barabanki, Uttar Pradesh
+                  <span className="font-semibold text-foreground">Branch Office:</span> Jaipur,
+                  Rajasthan, India
                 </span>
               </div>
             </div>
@@ -71,11 +82,11 @@ export function Footer() {
           <div className="max-w-[200px]">
             <h4 className="font-mono-label text-xs uppercase tracking-widest mb-4">Support</h4>
             <a
-              href="mailto:customersupportteam@futureix.in"
+              href="mailto:hello@futureix.in"
               className="flex items-start gap-2 text-sm text-muted hover:text-foreground transition-colors break-all"
             >
               <Mail size={14} className="text-signal shrink-0 mt-0.5" />
-              customersupportteam@futureix.in
+              hello@futureix.in
             </a>
           </div>
 

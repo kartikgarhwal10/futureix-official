@@ -7,7 +7,7 @@ import { SectionTag } from "@/components/SectionTag";
 const stories = [
   {
     id: "kartik-garhwal",
-    name: "Meet the Founder – Kartik Garhwal",
+    name: "Meet the Co-Founder – Kartik Garhwal",
     initials: "KG",
     photo: "/founders/kartik-garhwal.jpg",
     location: "Jaipur, Rajasthan",
@@ -15,7 +15,7 @@ const stories = [
       "Every successful company begins with a vision. For FUTUREIX, that vision belongs to Kartik Garhwal, a passionate entrepreneur from Jaipur, Rajasthan, who believes that technology and digital skills should create real opportunities for everyone.",
       "Kartik's entrepreneurial journey started with curiosity rather than resources. While pursuing his engineering degree, he spent countless hours learning digital marketing, website development, AI tools, and business strategies. Instead of waiting for opportunities, he created them by working with businesses, understanding client requirements, solving marketing challenges, and continuously improving his skills through real-world projects.",
       "Over time, he realized that many startups and local businesses had excellent products but struggled to build a strong online presence. This inspired him to provide practical digital solutions that focused on measurable growth rather than just attractive designs. From creating high-converting websites and managing advertising campaigns to helping brands establish their digital identity, every project strengthened his belief that the right strategy can transform any business.",
-      "Driven by this vision, Kartik founded FUTUREIX with a simple mission:",
+      "Driven by this vision, Kartik co-founded FUTUREIX with a simple mission:",
     ],
     mission:
       "To empower businesses and individuals through innovation, technology, AI, and result-driven digital solutions.",

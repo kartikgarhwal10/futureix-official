@@ -93,10 +93,11 @@ const structuredData = {
   image: `${siteUrl}/opengraph-image`,
   description: siteDescription,
   email: "hello@futureix.in",
+  telephone: "+91-73550-24385",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Jaipur",
-    addressRegion: "Rajasthan",
+    addressLocality: "Haidergarh",
+    addressRegion: "Uttar Pradesh",
     addressCountry: "IN",
   },
   founder: [

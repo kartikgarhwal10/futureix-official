@@ -1,6 +1,7 @@
 "use client";
 
 const messages = [
+  "🔥 Work From Home Membership Open – Register for ₹3,000",
   "Free digital growth consultation this week",
   "New: AI SaaS Solutions now live",
   "Explore our latest blogs & growth articles",
