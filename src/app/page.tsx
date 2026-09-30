@@ -13,6 +13,7 @@ import { ContactCta } from "@/components/ContactCta";
 import { Footer } from "@/components/Footer";
 import { ParticleField } from "@/components/ParticleField";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { MembershipNotification } from "@/components/MembershipNotification";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <MembershipNotification />
     </div>
   );
 }
