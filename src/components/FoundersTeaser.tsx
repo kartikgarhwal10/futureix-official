@@ -33,8 +33,8 @@ export function FoundersTeaser() {
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
@@ -51,8 +51,8 @@ export function FoundersTeaser() {
           {founders.map((founder, i) => (
             <motion.div
               key={founder.name}
-              initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}

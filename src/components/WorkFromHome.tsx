@@ -115,8 +115,8 @@ export function WorkFromHome() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-3xl text-center"
@@ -137,8 +137,8 @@ export function WorkFromHome() {
         <div className="mt-14 grid lg:grid-cols-12 gap-8 items-stretch">
           {/* Main Content Box */}
           <motion.div
-            initial={{ opacity: 0, x: -30, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
             className="lg:col-span-7 glass rounded-3xl p-6 sm:p-10 flex flex-col justify-between relative overflow-hidden border border-black/10"
@@ -197,8 +197,8 @@ export function WorkFromHome() {
 
           {/* Highlighted Price Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
             className="lg:col-span-5 glow-border relative rounded-3xl p-8 sm:p-10 flex flex-col justify-between text-center overflow-hidden"
