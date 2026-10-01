@@ -48,8 +48,8 @@ export function Hero() {
   const orbY2 = useTransform(y, [-0.5, 0.5], [15, -15]);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
     const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
     window.addEventListener("resize", handleResize, { passive: true });
     return () => window.removeEventListener("resize", handleResize);
   }, []);

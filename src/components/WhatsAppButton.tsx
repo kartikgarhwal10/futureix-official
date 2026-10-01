@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa6";
-import { WHATSAPP_LINK, WHATSAPP_LINK_2 } from "@/lib/whatsapp";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 
 const buttons = [
   { href: WHATSAPP_LINK, label: "Chat on WhatsApp (+91 73550 24385)", bottom: "bottom-6", delay: 2 },

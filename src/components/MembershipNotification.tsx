@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, X, Sparkles, TrendingUp, ShieldCheck, ArrowRight } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
@@ -111,17 +111,17 @@ const notifications: NotificationItem[] = [
 export function MembershipNotification() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [isDismissed, setIsDismissed] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("futureix_notification_dismissed") === "true";
+    }
+    return false;
+  });
   const [isHovered, setIsHovered] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Check session storage on mount
   useEffect(() => {
-    const dismissed = sessionStorage.getItem("futureix_notification_dismissed");
-    if (dismissed === "true") {
-      setIsDismissed(true);
-      return;
-    }
+    if (isDismissed) return;
 
     // Initial popup delay after page loads (3.5s)
     const initialTimer = setTimeout(() => {
@@ -129,7 +129,7 @@ export function MembershipNotification() {
     }, 3500);
 
     return () => clearTimeout(initialTimer);
-  }, []);
+  }, [isDismissed]);
 
   // Interval manager for cycling notifications
   useEffect(() => {

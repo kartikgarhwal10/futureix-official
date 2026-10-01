@@ -20,7 +20,7 @@ export function ParticleField() {
     let isVisible = true;
     const isMobile = window.innerWidth < 768;
 
-    let particles: {
+    const particles: {
       x: number;
       y: number;
       vx: number;
@@ -54,7 +54,7 @@ export function ParticleField() {
       });
     }
 
-    let mouse = { x: -1000, y: -1000 };
+    const mouse = { x: -1000, y: -1000 };
     const onMouse = (e: MouseEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;

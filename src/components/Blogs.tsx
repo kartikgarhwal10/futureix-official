@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useId } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { blogCategories, blogs, type BlogPost } from "@/data/blogs";
 import { SectionTag } from "@/components/SectionTag";
@@ -26,14 +28,14 @@ export function Blogs() {
 
   const filteredBlogs =
     selectedCategory === "All"
-      ? blogs
-      : blogs.filter((b) => b.category === selectedCategory);
+      ? blogs.slice(0, 6)
+      : blogs.filter((b) => b.category === selectedCategory).slice(0, 6);
 
   const featuredBlog = blogs.find((b) => b.featured) || blogs[0];
 
   const handleShare = (article: BlogPost) => {
     if (typeof window !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(`${window.location.origin}/#blogs`);
+      navigator.clipboard.writeText(`${window.location.origin}/blog/${article.slug}`);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -71,6 +73,16 @@ export function Blogs() {
             Practical strategies, in-depth playbooks, and modern digital marketing guides crafted
             by the FUTUREIX growth team.
           </p>
+
+          <div className="mt-6">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-2.5 text-xs font-semibold text-background shadow-[3px_3px_0_0_var(--lime)] transition-all hover:scale-105"
+            >
+              Explore All 30+ Growth Articles
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </motion.div>
 
         {/* Category Filter Pills */}
@@ -108,8 +120,7 @@ export function Blogs() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6 }}
-            className="mt-12 overflow-hidden rounded-3xl border border-border glass relative group cursor-pointer"
-            onClick={() => setActiveArticle(featuredBlog)}
+            className="mt-12 overflow-hidden rounded-3xl border border-border glass relative group"
           >
             <div className="grid lg:grid-cols-12 gap-6 p-6 sm:p-10 items-center">
               <div className="lg:col-span-7 flex flex-col justify-center">
@@ -127,9 +138,11 @@ export function Blogs() {
                   </span>
                 </div>
 
-                <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground font-bold leading-tight group-hover:text-signal transition-colors duration-300">
-                  {featuredBlog.title}
-                </h3>
+                <Link href={`/blog/${featuredBlog.slug}`} className="group-hover:text-signal transition-colors">
+                  <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground font-bold leading-tight">
+                    {featuredBlog.title}
+                  </h3>
+                </Link>
 
                 <p className="mt-4 text-sm sm:text-base text-muted leading-relaxed">
                   {featuredBlog.excerpt}
@@ -146,41 +159,52 @@ export function Blogs() {
                     </div>
                   </div>
 
-                  <div className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-2.5 text-xs font-semibold text-white shadow-[3px_3px_0_0_rgba(13,13,10,0.9)] transition-all duration-300 group-hover:shadow-[5px_5px_0_0_rgba(13,13,10,0.9)] group-hover:scale-105">
+                  <Link
+                    href={`/blog/${featuredBlog.slug}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-2.5 text-xs font-semibold text-white shadow-[3px_3px_0_0_rgba(13,13,10,0.9)] transition-all duration-300 group-hover:shadow-[5px_5px_0_0_rgba(13,13,10,0.9)] group-hover:scale-105"
+                  >
                     Read Full Article
                     <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-                  </div>
+                  </Link>
                 </div>
               </div>
 
               {/* Graphical Visual Panel */}
-              <div className="lg:col-span-5 relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden bg-gradient-to-br from-foreground via-zinc-900 to-black p-6 sm:p-8 flex flex-col justify-between border border-border/40">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,68,35,0.25)_0%,transparent_50%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(45,107,255,0.3)_0%,transparent_50%)]" />
-                
-                <div className="relative z-10 flex justify-between items-start">
-                  <div className="h-10 w-10 rounded-xl glass flex items-center justify-center text-white">
-                    <BookOpen size={20} className="text-lime" />
-                  </div>
-                  <span className="font-mono-label text-[11px] uppercase tracking-wider text-white/70 glass px-3 py-1 rounded-full">
-                    {featuredBlog.publishedAt}
-                  </span>
-                </div>
+              <div className="lg:col-span-5 relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden bg-zinc-900 border border-border/40">
+                <Image
+                  src={featuredBlog.image}
+                  alt={featuredBlog.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-                <div className="relative z-10 space-y-2">
-                  <div className="flex flex-wrap gap-1.5">
-                    {featuredBlog.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] uppercase font-mono-label px-2.5 py-1 rounded-md bg-white/10 text-white/90 backdrop-blur-md"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
+                <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-between h-full">
+                  <div className="flex justify-between items-start">
+                    <div className="h-10 w-10 rounded-xl glass flex items-center justify-center text-white">
+                      <BookOpen size={20} className="text-lime" />
+                    </div>
+                    <span className="font-mono-label text-[11px] uppercase tracking-wider text-white/90 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                      {featuredBlog.publishedAt}
+                    </span>
                   </div>
-                  <p className="text-xs text-white/80 line-clamp-2">
-                    Actionable blueprint for forward-thinking businesses and founders.
-                  </p>
+
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap gap-1.5">
+                      {featuredBlog.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[10px] uppercase font-mono-label px-2.5 py-1 rounded-md bg-black/60 text-white/90 backdrop-blur-md border border-white/10"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-xs text-white/90 line-clamp-2 font-medium">
+                      Actionable blueprint for forward-thinking businesses and founders.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -201,47 +225,46 @@ export function Blogs() {
                 ease: [0.25, 1, 0.5, 1],
               }}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              onClick={() => setActiveArticle(blog)}
-              className="glass group flex flex-col justify-between overflow-hidden rounded-2xl border border-border cursor-pointer transition-shadow duration-300 hover:shadow-xl"
+              className="glass group flex flex-col justify-between overflow-hidden rounded-2xl border border-border transition-shadow duration-300 hover:shadow-xl"
             >
-              {/* Header Cover Graphic */}
-              <div className="relative h-44 w-full overflow-hidden bg-gradient-to-br from-zinc-900 via-neutral-900 to-black p-5 flex flex-col justify-between border-b border-border">
-                <div
-                  aria-hidden
-                  className={`pointer-events-none absolute inset-0 bg-gradient-to-tr ${blog.themeGradient} opacity-60 group-hover:opacity-90 transition-opacity duration-500`}
+              {/* Header Cover Graphic with Mock Image */}
+              <div className="relative h-48 w-full overflow-hidden bg-zinc-900 border-b border-border">
+                <Image
+                  src={blog.image}
+                  alt={blog.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)] bg-[size:16px_16px]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="inline-flex items-center rounded-full bg-lime/90 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-foreground">
-                    {blog.category}
-                  </span>
-                  <span className="flex items-center gap-1 text-[11px] font-mono-label text-white/75 bg-black/40 backdrop-blur-md px-2.5 py-0.5 rounded-full">
-                    <Clock size={11} />
-                    {blog.readTime}
-                  </span>
-                </div>
+                <div className="relative z-10 p-4 flex flex-col justify-between h-full">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center rounded-full bg-lime/90 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-foreground">
+                      {blog.category}
+                    </span>
+                    <span className="flex items-center gap-1 text-[11px] font-mono-label text-white/90 bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+                      <Clock size={11} />
+                      {blog.readTime}
+                    </span>
+                  </div>
 
-                <div className="relative z-10 flex items-center justify-between text-white/70 text-xs">
-                  <span className="flex items-center gap-1.5 font-mono-label text-[11px]">
-                    <Calendar size={12} className="text-signal" />
-                    {blog.publishedAt}
-                  </span>
-                  <div className="flex gap-1">
-                    {blog.tags.slice(0, 2).map((t) => (
-                      <span key={t} className="text-[9px] bg-white/10 px-1.5 py-0.5 rounded">
-                        {t}
-                      </span>
-                    ))}
+                  <div className="flex items-center justify-between text-white/90 text-xs">
+                    <span className="flex items-center gap-1.5 font-mono-label text-[11px] bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+                      <Calendar size={12} className="text-signal" />
+                      {blog.publishedAt}
+                    </span>
                   </div>
                 </div>
               </div>
 
               {/* Card Body */}
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-lg font-bold text-foreground leading-snug group-hover:text-signal transition-colors duration-300">
-                  {blog.title}
-                </h3>
+                <Link href={`/blog/${blog.slug}`} className="group-hover:text-signal transition-colors">
+                  <h3 className="font-display text-lg font-bold text-foreground leading-snug">
+                    {blog.title}
+                  </h3>
+                </Link>
                 <p className="mt-3 text-xs sm:text-sm text-muted leading-relaxed line-clamp-3">
                   {blog.excerpt}
                 </p>
@@ -254,18 +277,41 @@ export function Blogs() {
                     <span className="text-xs text-muted font-medium">{blog.author.name}</span>
                   </div>
 
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-foreground group-hover:text-signal transition-colors">
-                    Read Article
-                    <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setActiveArticle(blog)}
+                      className="text-[11px] text-muted hover:text-foreground underline underline-offset-2 transition-colors cursor-pointer"
+                    >
+                      Quick View
+                    </button>
+                    <Link
+                      href={`/blog/${blog.slug}`}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-foreground group-hover:text-signal transition-colors"
+                    >
+                      Read Article
+                      <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.article>
           ))}
         </div>
+
+        {/* View All Button at Bottom */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-sm font-semibold text-background shadow-[3px_3px_0_0_var(--lime)] transition-all hover:scale-105 active:scale-95"
+          >
+            Browse Full Blog Library (30 Articles)
+            <ArrowRight size={16} />
+          </Link>
+        </div>
       </div>
 
-      {/* Interactive Full Article Reading Modal */}
+      {/* Interactive Quick View Article Reading Modal */}
       <AnimatePresence>
         {activeArticle && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
@@ -301,6 +347,13 @@ export function Blogs() {
                 </div>
 
                 <div className="flex items-center gap-2">
+                  <Link
+                    href={`/blog/${activeArticle.slug}`}
+                    className="inline-flex items-center gap-1 rounded-full bg-foreground px-3.5 py-1.5 text-xs text-background font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    Open Page <ArrowRight size={12} />
+                  </Link>
+
                   <button
                     type="button"
                     onClick={() => handleShare(activeArticle)}
@@ -416,14 +469,14 @@ export function Blogs() {
                     </div>
                   </div>
 
-                  <a
-                    href="#contact"
+                  <Link
+                    href={`/blog/${activeArticle.slug}`}
                     onClick={() => setActiveArticle(null)}
                     className="shrink-0 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-xs font-semibold text-background shadow-[3px_3px_0_0_var(--lime)] transition-all hover:scale-105"
                   >
-                    Discuss With Our Team
+                    Read Full Article Page
                     <ArrowRight size={14} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>
