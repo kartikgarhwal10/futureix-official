@@ -23,12 +23,13 @@ export function WhatsAppButton() {
           transition={{ delay: btn.delay, type: "spring", stiffness: 200 }}
           whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 0.9 }}
-          className={`fixed ${btn.bottom} right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] cursor-pointer`}
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] cursor-pointer"
         >
-          <FaWhatsapp size={26} />
-          <span className="absolute -top-1 -right-1 flex h-4 w-4">
+          <FaWhatsapp size={22} className="sm:hidden" />
+          <FaWhatsapp size={26} className="hidden sm:inline" />
+          <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 sm:h-4 sm:w-4">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75" />
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-[#25D366]" />
+            <span className="relative inline-flex rounded-full h-full w-full bg-[#25D366]" />
           </span>
         </motion.a>
       ))}

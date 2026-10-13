@@ -105,7 +105,7 @@ export function WorkFromHome() {
   }
 
   return (
-    <section id="wfh" className="relative py-24 scroll-mt-24 overflow-hidden">
+    <section id="wfh" className="relative py-16 sm:py-24 scroll-mt-24 overflow-hidden">
       {/* Background glow effects */}
       <div
         aria-hidden
@@ -124,59 +124,59 @@ export function WorkFromHome() {
           <div className="flex justify-center">
             <SectionTag number="06" label="Work From Home Opportunity" />
           </div>
-          <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+          <h2 className="mt-4 sm:mt-5 font-display text-2xl sm:text-4xl lg:text-5xl tracking-tight">
             Work From Home & Earn With{" "}
             <span className="font-accent text-signal">FUTUREIX Membership</span>
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-muted leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-muted leading-relaxed max-w-2xl mx-auto px-1 sm:px-0">
             Unlock flexible remote work opportunities, learn high-demand digital skills, and gain access to our exclusive project ecosystem with a one-time registration.
           </p>
         </motion.div>
 
         {/* Featured Membership Pricing Card & Main Banner */}
-        <div className="mt-14 grid lg:grid-cols-12 gap-8 items-stretch">
+        <div className="mt-10 sm:mt-14 grid lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Main Content Box */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 glass rounded-3xl p-6 sm:p-10 flex flex-col justify-between relative overflow-hidden border border-black/10"
+            className="lg:col-span-7 glass rounded-2xl sm:rounded-3xl p-5 sm:p-10 flex flex-col justify-between relative overflow-hidden border border-black/10"
             style={{ background: "#ffffff" }}
           >
             <div className="absolute top-0 right-0 -mr-16 -mt-16 h-48 w-48 rounded-full bg-signal/10 blur-3xl pointer-events-none" />
 
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-signal/10 px-4 py-1.5 text-xs font-semibold text-signal border border-signal/20 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-signal/10 px-3.5 py-1 text-xs font-semibold text-signal border border-signal/20 mb-5 sm:mb-6">
                 <Sparkles size={14} />
                 <span>Official WFH Membership Program</span>
               </div>
 
-              <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              <h3 className="font-display text-xl sm:text-3xl font-bold tracking-tight text-foreground">
                 Start Your Remote Digital Career Today
               </h3>
 
-              <p className="mt-4 text-sm sm:text-base text-muted leading-relaxed">
+              <p className="mt-3 sm:mt-4 text-xs sm:text-base text-muted leading-relaxed">
                 The FUTUREIX Work From Home Membership is designed for students, freelancers, homemakers, and professionals looking to generate consistent income online. We provide end-to-end guidance, project assignments, and practical digital training.
               </p>
 
-              <div className="mt-8 space-y-3">
+              <div className="mt-6 sm:mt-8 space-y-2.5 sm:space-y-3">
                 {highlights.map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-signal shrink-0 mt-0.5" />
-                    <span className="text-sm font-medium text-foreground">{item}</span>
+                  <div key={i} className="flex items-start gap-2.5 sm:gap-3">
+                    <CheckCircle2 size={17} className="text-signal shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm font-medium text-foreground">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="mt-10 pt-6 border-t border-black/10 flex flex-col sm:flex-row items-center gap-4">
+            <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-black/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <motion.button
                 type="button"
                 onClick={() => setIsOpen(true)}
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 text-sm font-semibold text-white shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] transition-shadow duration-300 hover:shadow-[6px_6px_0_0_rgba(13,13,10,0.9)] cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 sm:px-7 text-xs sm:text-sm font-semibold text-white shadow-[3px_3px_0_0_rgba(13,13,10,0.9)] transition-shadow duration-300 hover:shadow-[5px_5px_0_0_rgba(13,13,10,0.9)] cursor-pointer"
               >
                 Apply for Membership
                 <ArrowRight size={16} />
@@ -185,9 +185,9 @@ export function WorkFromHome() {
                 href={directWfhWhatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full glass px-6 py-3.5 text-sm font-semibold text-foreground cursor-pointer border border-black/10"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full glass px-6 py-3.5 text-xs sm:text-sm font-semibold text-foreground cursor-pointer border border-black/10"
               >
                 <MessageCircle size={16} className="text-signal" />
                 WhatsApp Inquiry
@@ -201,7 +201,7 @@ export function WorkFromHome() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 glow-border relative rounded-3xl p-8 sm:p-10 flex flex-col justify-between text-center overflow-hidden"
+            className="lg:col-span-5 glow-border relative rounded-2xl sm:rounded-3xl p-6 sm:p-10 flex flex-col justify-between text-center overflow-hidden"
             style={{ background: "#ffffff" }}
           >
             <div
@@ -320,7 +320,7 @@ export function WorkFromHome() {
               exit={{ opacity: 0, y: 20, scale: 0.96 }}
               transition={{ duration: 0.25, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
               onClick={(e) => e.stopPropagation()}
-              className="glass relative w-full max-w-lg rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
+              className="glass relative w-full max-w-lg rounded-2xl sm:rounded-3xl p-5 sm:p-8 max-h-[92vh] overflow-y-auto"
               style={{ background: "#ffffff" }}
             >
               <button
@@ -375,7 +375,7 @@ export function WorkFromHome() {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label htmlFor="wfh-email" className="text-xs font-medium text-muted">
                       Email Address
@@ -453,10 +453,10 @@ export function WorkFromHome() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
-                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 text-sm font-bold text-white shadow-[0_0_30px_rgba(37,211,102,0.35)] transition-shadow duration-300 hover:shadow-[0_0_50px_rgba(37,211,102,0.55)] cursor-pointer"
+                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-white shadow-[0_0_30px_rgba(37,211,102,0.35)] transition-shadow duration-300 hover:shadow-[0_0_50px_rgba(37,211,102,0.55)] cursor-pointer"
                 >
                   <Send size={16} />
-                  Proceed to WhatsApp Registration (₹3,000)
+                  <span>Proceed to WhatsApp Registration (₹3,000)</span>
                 </motion.button>
                 <p className="mt-3 text-[11px] text-muted text-center leading-relaxed">
                   By submitting, you will be redirected to WhatsApp to confirm your ₹3,000 membership payment and details with our team.

@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
 
           {/* Content Container */}
           <div
-            className="glass rounded-3xl p-8 sm:p-12 space-y-10 relative overflow-hidden"
+            className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-12 space-y-8 sm:space-y-10 relative overflow-hidden"
             style={{ background: "#ffffff" }}
           >
             <div className="absolute inset-x-0 top-0 h-2 bg-gradient-primary" />

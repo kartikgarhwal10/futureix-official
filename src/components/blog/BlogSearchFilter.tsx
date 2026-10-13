@@ -85,8 +85,8 @@ export function BlogSearchFilter({ initialBlogs }: BlogSearchFilterProps) {
 
       {/* Featured Article Banner (Visible when "All" is selected and no search query) */}
       {selectedCategory === "All" && !searchQuery && featuredBlog && (
-        <div className="overflow-hidden rounded-3xl border border-border bg-white shadow-md transition-all hover:shadow-lg group">
-          <div className="grid lg:grid-cols-12 gap-6 p-6 sm:p-10 items-center">
+        <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-white shadow-md transition-all hover:shadow-lg group">
+          <div className="grid lg:grid-cols-12 gap-6 p-5 sm:p-10 items-center">
             <div className="lg:col-span-7 flex flex-col justify-center">
               <div className="flex flex-wrap items-center gap-2.5 mb-4">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-signal px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">

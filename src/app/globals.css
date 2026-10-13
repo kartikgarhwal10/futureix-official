@@ -26,6 +26,7 @@
 }
 
 @theme inline {
+  --breakpoint-xs: 380px;
   --color-background: var(--background);
   --color-background-elevated: var(--background-elevated);
   --color-foreground: var(--foreground);
@@ -51,6 +52,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -61,6 +63,18 @@ body {
   background-size: 28px 28px;
   overflow-x: hidden;
   max-width: 100vw;
+  width: 100%;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+p, span, li, a {
+  overflow-wrap: break-word;
 }
 
 .font-display {

@@ -59,7 +59,7 @@ export function WhyChoose() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
               whileHover={{ y: -8, transition: { duration: 0.25 } }}
-              className="glass group rounded-2xl p-7 text-center relative overflow-hidden cursor-pointer"
+              className="glass group rounded-2xl p-5 sm:p-7 text-center relative overflow-hidden cursor-pointer"
             >
               <div
                 aria-hidden

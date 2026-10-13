@@ -10,10 +10,10 @@ import { Logo } from "./Logo";
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "Services", href: "#services" },
-  { label: "Work From Home", href: "#wfh", badge: "₹3,000" },
   { label: "Blogs & Articles", href: "#blogs" },
   { label: "Why Us", href: "#why-choose" },
   { label: "Founders", href: "#founders" },
+  { label: "Work From Home", href: "#wfh", badge: "₹3,000" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
@@ -91,15 +91,15 @@ export function Navbar() {
         scrolled ? "py-2" : "py-3 sm:py-4"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-          className="glass rounded-2xl flex items-center justify-between px-3 sm:px-5 lg:px-6 py-2.5 sm:py-3 gap-2"
+          className="glass rounded-2xl flex items-center justify-between px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 md:py-3 gap-1.5 sm:gap-2"
         >
           <Link href="/" className="group flex items-center gap-2 shrink-0">
-            <Logo className="h-7 sm:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
+            <Logo className="h-6 sm:h-7 md:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
@@ -121,21 +121,23 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             {/* FEATURE BUTTON: Instant Quote Calculator */}
             <a
               href="https://futureix-quote-landing-page.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Launch Instant Project Quote Calculator"
-              className="relative group inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-signal via-[#ff5733] to-[#e63615] px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-bold text-white shadow-[2.5px_2.5px_0_0_#0d0d0a] sm:shadow-[3px_3px_0_0_#0d0d0a] hover:shadow-[4px_4px_0_0_#0d0d0a] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden"
+              className="relative group inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-signal via-[#ff5733] to-[#e63615] px-2.5 py-1.5 sm:px-4 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-bold text-white shadow-[2px_2px_0_0_#0d0d0a] sm:shadow-[3px_3px_0_0_#0d0d0a] hover:shadow-[4px_4px_0_0_#0d0d0a] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden"
             >
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime opacity-80" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-lime" />
               </span>
-              <Calculator size={15} className="text-lime shrink-0 hidden xs:inline-block" />
-              <span className="tracking-tight whitespace-nowrap">Instant Quote</span>
+              <Calculator size={14} className="text-lime shrink-0 hidden xs:inline-block" />
+              <span className="tracking-tight whitespace-nowrap">
+                <span className="hidden xs:inline">Instant </span>Quote
+              </span>
               <span className="hidden xl:inline-flex items-center rounded-full bg-lime/20 border border-lime/40 px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase tracking-tight text-lime">
                 Live
               </span>

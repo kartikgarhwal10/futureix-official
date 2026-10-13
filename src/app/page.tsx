@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
@@ -15,6 +16,24 @@ import { ParticleField } from "@/components/ParticleField";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { MembershipNotification } from "@/components/MembershipNotification";
 
+export const metadata: Metadata = {
+  title: "FUTUREIX | Digital Marketing & Website Development Agency",
+  description:
+    "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.",
+  alternates: {
+    canonical: "https://futureix.in/",
+  },
+  openGraph: {
+    title: "FUTUREIX | Digital Marketing & Website Development Agency",
+    description:
+      "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.",
+    url: "https://futureix.in/",
+    siteName: "FUTUREIX",
+    locale: "en_IN",
+    type: "website",
+  },
+};
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 relative">
@@ -25,11 +44,11 @@ export default function Home() {
         <Hero />
         <Stats />
         <Services />
-        <WorkFromHome />
         <Blogs />
         <WhyChoose />
         <FoundersTeaser />
         <FounderStory />
+        <WorkFromHome />
         <Testimonials />
         <ContactCta />
       </main>

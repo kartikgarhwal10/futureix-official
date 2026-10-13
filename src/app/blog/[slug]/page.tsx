@@ -144,14 +144,14 @@ export default async function ArticlePage({ params }: Props) {
             </div>
 
             {/* Short Introduction Pull Quote */}
-            <div className="rounded-2xl bg-white border-l-4 border-signal p-6 shadow-sm">
-              <p className="text-base sm:text-lg text-foreground leading-relaxed italic">
+            <div className="rounded-2xl bg-white border-l-4 border-signal p-4 sm:p-6 shadow-sm">
+              <p className="text-sm sm:text-lg text-foreground leading-relaxed italic">
                 {post.content.introduction}
               </p>
             </div>
 
             {/* Visual Header Graphic with Mock Image */}
-            <div className="relative h-64 sm:h-96 w-full rounded-3xl overflow-hidden bg-zinc-900 border border-border shadow-xl group">
+            <div className="relative h-56 sm:h-96 w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-900 border border-border shadow-xl group">
               <Image
                 src={post.image}
                 alt={post.imageAlt}
@@ -162,7 +162,7 @@ export default async function ArticlePage({ params }: Props) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-              <div className="relative z-10 p-6 sm:p-10 flex flex-col justify-between h-full">
+              <div className="relative z-10 p-4 sm:p-10 flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start">
                   <div className="h-10 w-10 rounded-xl glass flex items-center justify-center text-white">
                     <BookOpen size={20} className="text-lime" />

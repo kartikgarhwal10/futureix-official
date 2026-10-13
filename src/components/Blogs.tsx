@@ -26,12 +26,12 @@ export function Blogs() {
   const [copied, setCopied] = useState(false);
   const categoryTabId = useId();
 
+  const featuredBlog = blogs.find((b) => b.featured) || blogs[0];
+
   const filteredBlogs =
     selectedCategory === "All"
-      ? blogs.slice(0, 6)
+      ? blogs.filter((b) => b.slug !== featuredBlog?.slug).slice(0, 6)
       : blogs.filter((b) => b.category === selectedCategory).slice(0, 6);
-
-  const featuredBlog = blogs.find((b) => b.featured) || blogs[0];
 
   const handleShare = (article: BlogPost) => {
     if (typeof window !== "undefined" && navigator.clipboard) {
@@ -65,19 +65,19 @@ export function Blogs() {
           <div className="flex justify-center">
             <SectionTag number="02" label="Blogs & Articles" />
           </div>
-          <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+          <h2 className="mt-4 sm:mt-5 font-display text-2xl sm:text-4xl lg:text-5xl tracking-tight">
             Insights on{" "}
             <span className="font-accent text-signal">AI, Growth &amp; Tech</span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-muted leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-muted leading-relaxed max-w-2xl mx-auto px-1 sm:px-0">
             Practical strategies, in-depth playbooks, and modern digital marketing guides crafted
             by the FUTUREIX growth team.
           </p>
 
-          <div className="mt-6">
+          <div className="mt-5 sm:mt-6">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-2.5 text-xs font-semibold text-background shadow-[3px_3px_0_0_var(--lime)] transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 sm:px-6 py-2.5 text-xs font-semibold text-background shadow-[3px_3px_0_0_var(--lime)] transition-all hover:scale-105"
             >
               Explore All 30+ Growth Articles
               <ArrowRight size={14} />
@@ -86,7 +86,7 @@ export function Blogs() {
         </motion.div>
 
         {/* Category Filter Pills */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
           {blogCategories.map((cat) => {
             const isActive = selectedCategory === cat;
             return (
@@ -94,7 +94,7 @@ export function Blogs() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`relative rounded-full px-5 py-2 text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
+                className={`relative rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "text-background shadow-md"
                     : "glass text-muted hover:text-foreground hover:border-black/20"
@@ -120,12 +120,12 @@ export function Blogs() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6 }}
-            className="mt-12 overflow-hidden rounded-3xl border border-border glass relative group"
+            className="mt-10 sm:mt-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-border glass relative group"
           >
-            <div className="grid lg:grid-cols-12 gap-6 p-6 sm:p-10 items-center">
+            <div className="grid lg:grid-cols-12 gap-6 p-5 sm:p-10 items-center">
               <div className="lg:col-span-7 flex flex-col justify-center">
                 <div className="flex flex-wrap items-center gap-2.5 mb-4">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-signal px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-signal px-3.5 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
                     <Sparkles size={12} />
                     Featured Article
                   </span>
@@ -139,7 +139,7 @@ export function Blogs() {
                 </div>
 
                 <Link href={`/blog/${featuredBlog.slug}`} className="group-hover:text-signal transition-colors">
-                  <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground font-bold leading-tight">
+                  <h3 className="font-display text-xl sm:text-3xl lg:text-4xl text-foreground font-bold leading-tight">
                     {featuredBlog.title}
                   </h3>
                 </Link>

@@ -94,69 +94,67 @@ export function ContactCta() {
             accelerate your business or career.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 flex-wrap">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto flex-wrap">
             <motion.a
               href="https://futureix-quote-landing-page.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="group inline-flex items-center gap-2 rounded-full bg-signal px-8 py-4 text-sm font-bold text-white shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] transition-all hover:shadow-[6px_6px_0_0_rgba(13,13,10,0.9)] cursor-pointer"
+              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold text-white shadow-[3px_3px_0_0_rgba(13,13,10,0.9)] hover:shadow-[5px_5px_0_0_rgba(13,13,10,0.9)] transition-all cursor-pointer"
             >
-              <Calculator size={16} className="text-lime" />
+              <Calculator size={16} className="text-lime shrink-0" />
               <span>Calculate Project Quote</span>
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </motion.a>
             <motion.button
               type="button"
               onClick={() => setIsOpen(true)}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-white shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] transition-shadow duration-300 hover:shadow-[6px_6px_0_0_rgba(13,13,10,0.9)] cursor-pointer"
+              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-sm font-semibold text-white shadow-[3px_3px_0_0_rgba(13,13,10,0.9)] transition-shadow duration-300 hover:shadow-[5px_5px_0_0_rgba(13,13,10,0.9)] cursor-pointer"
             >
-              <Send size={16} />
-              Submit Inquiry
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              <Send size={15} className="shrink-0" />
+              <span>Submit Inquiry</span>
+              <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
             </motion.button>
             <motion.a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="glass inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold text-foreground cursor-pointer border border-black/10"
+              className="w-full sm:w-auto glass inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-sm font-semibold text-foreground cursor-pointer border border-black/10"
             >
-              <MessageCircle size={16} className="text-signal" />
-              WhatsApp Us
+              <MessageCircle size={15} className="text-signal shrink-0" />
+              <span>WhatsApp Us</span>
             </motion.a>
           </div>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-muted">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-muted">
             <a
               href="mailto:hello@futureix.in"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
+              className="flex items-center gap-1.5 hover:text-foreground transition-colors"
             >
-              <Mail size={15} className="text-signal" />
-              hello@futureix.in
+              <Mail size={14} className="text-signal shrink-0" />
+              <span>hello@futureix.in</span>
             </a>
             <a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-foreground transition-colors"
+              className="flex items-center gap-1.5 hover:text-foreground transition-colors"
             >
-              <Phone size={15} className="text-signal" />
-              +91 73550 24385
+              <Phone size={14} className="text-signal shrink-0" />
+              <span>+91 73550 24385</span>
             </a>
-            <span className="flex items-center gap-2">
-              <MapPin size={15} className="text-signal" />
-              <span className="font-semibold text-foreground">Main Office:</span> Jaipur,
-              Rajasthan, India
+            <span className="flex items-center gap-1.5 text-center">
+              <MapPin size={14} className="text-signal shrink-0" />
+              <span><strong className="text-foreground font-semibold">Main Office:</strong> Jaipur, RJ</span>
             </span>
-            <span className="flex items-center gap-2">
-              <MapPin size={15} className="text-signal" />
-              <span className="font-semibold text-foreground">Branch Office:</span> Haidergarh,
-              Barabanki, UP
+            <span className="flex items-center gap-1.5 text-center">
+              <MapPin size={14} className="text-signal shrink-0" />
+              <span><strong className="text-foreground font-semibold">Branch:</strong> Haidergarh, UP</span>
             </span>
           </div>
         </motion.div>

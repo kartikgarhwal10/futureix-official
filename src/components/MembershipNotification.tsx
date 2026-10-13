@@ -185,7 +185,7 @@ export function MembershipNotification() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={handleClickNotification}
-          className="fixed bottom-4 left-4 z-40 max-w-[270px] sm:max-w-[290px] cursor-pointer group"
+          className="fixed bottom-18 sm:bottom-4 left-3 sm:left-4 z-40 max-w-[260px] sm:max-w-[290px] cursor-pointer group"
           role="status"
           aria-live="polite"
         >

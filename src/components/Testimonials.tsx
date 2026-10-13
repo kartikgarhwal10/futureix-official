@@ -47,7 +47,7 @@ export function Testimonials() {
           </h2>
         </motion.div>
 
-        <div className="glass relative rounded-3xl p-8 sm:p-12 text-center min-h-[260px] flex flex-col items-center justify-center overflow-hidden">
+        <div className="glass relative rounded-2xl sm:rounded-3xl px-5 py-8 sm:px-14 sm:py-12 text-center min-h-[240px] sm:min-h-[260px] flex flex-col items-center justify-center overflow-hidden">
           <div
             aria-hidden
             className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 h-32 w-32 rounded-full bg-electric-blue/15 blur-[50px]"
@@ -56,7 +56,7 @@ export function Testimonials() {
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Quote size={32} className="text-signal/70 mb-6" />
+            <Quote size={28} className="text-signal/70 mb-4 sm:mb-6" />
           </motion.div>
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -67,22 +67,23 @@ export function Testimonials() {
               exit={{ opacity: 0, x: -40 * direction, filter: "blur(4px)" }}
               transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
             >
-              <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-xl mx-auto">
+              <p className="text-sm sm:text-lg text-foreground leading-relaxed max-w-xl mx-auto px-1 sm:px-0">
                 &ldquo;{current.review}&rdquo;
               </p>
-              <div className="mt-8">
-                <p className="font-display font-semibold text-lg">{current.name}</p>
-                <p className="text-xs text-muted mt-1">{current.company}</p>
+              <div className="mt-6 sm:mt-8">
+                <p className="font-display font-semibold text-base sm:text-lg">{current.name}</p>
+                <p className="text-xs text-muted mt-0.5 sm:mt-1">{current.company}</p>
               </div>
             </motion.div>
           </AnimatePresence>
 
+          {/* Desktop side navigation arrows */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             aria-label="Previous testimonial"
             onClick={prev}
-            className="glass absolute left-3 sm:-left-4 top-1/2 -translate-y-1/2 rounded-full p-2.5 cursor-pointer"
+            className="hidden sm:flex glass absolute -left-4 top-1/2 -translate-y-1/2 rounded-full p-2.5 cursor-pointer items-center justify-center"
           >
             <ChevronLeft size={18} />
           </motion.button>
@@ -91,33 +92,54 @@ export function Testimonials() {
             whileTap={{ scale: 0.9 }}
             aria-label="Next testimonial"
             onClick={next}
-            className="glass absolute right-3 sm:-right-4 top-1/2 -translate-y-1/2 rounded-full p-2.5 cursor-pointer"
+            className="hidden sm:flex glass absolute -right-4 top-1/2 -translate-y-1/2 rounded-full p-2.5 cursor-pointer items-center justify-center"
           >
             <ChevronRight size={18} />
           </motion.button>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-2.5">
-          {testimonials.map((_, i) => (
-            <motion.button
-              key={i}
-              aria-label={`Go to testimonial ${i + 1}`}
-              onClick={() => {
-                setDirection(i > index ? 1 : -1);
-                setIndex(i);
-              }}
-              className="cursor-pointer"
-              whileHover={{ scale: 1.3 }}
-            >
-              <motion.div
-                className={`h-2 rounded-full ${
-                  i === index ? "bg-gradient-primary" : "bg-foreground/15"
-                }`}
-                animate={{ width: i === index ? 28 : 8 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.button>
-          ))}
+        {/* Mobile & Tablet controls row: Arrows + Dots */}
+        <div className="mt-6 sm:mt-8 flex items-center justify-center gap-3">
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            aria-label="Previous testimonial"
+            onClick={prev}
+            className="sm:hidden glass rounded-full p-2 cursor-pointer flex items-center justify-center"
+          >
+            <ChevronLeft size={16} />
+          </motion.button>
+
+          <div className="flex items-center gap-2">
+            {testimonials.map((_, i) => (
+              <motion.button
+                key={i}
+                aria-label={`Go to testimonial ${i + 1}`}
+                onClick={() => {
+                  setDirection(i > index ? 1 : -1);
+                  setIndex(i);
+                }}
+                className="cursor-pointer"
+                whileHover={{ scale: 1.3 }}
+              >
+                <motion.div
+                  className={`h-2 rounded-full ${
+                    i === index ? "bg-gradient-primary" : "bg-foreground/15"
+                  }`}
+                  animate={{ width: i === index ? 24 : 8 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
+            ))}
+          </div>
+
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            aria-label="Next testimonial"
+            onClick={next}
+            className="sm:hidden glass rounded-full p-2 cursor-pointer flex items-center justify-center"
+          >
+            <ChevronRight size={16} />
+          </motion.button>
         </div>
       </div>
     </section>

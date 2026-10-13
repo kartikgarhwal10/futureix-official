@@ -76,10 +76,10 @@ export function FounderStory() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] }}
-              className="glass scroll-mt-28 rounded-3xl p-6 sm:p-10"
+              className="glass scroll-mt-28 rounded-2xl sm:rounded-3xl p-5 sm:p-10"
             >
-              <div className="flex items-center gap-4">
-                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-primary shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] overflow-hidden">
+              <div className="flex items-center gap-3.5 sm:gap-4">
+                <div className="relative flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-full bg-gradient-primary shadow-[3px_3px_0_0_rgba(13,13,10,0.9)] overflow-hidden">
                   {story.photo ? (
                     <Image
                       src={story.photo}
@@ -89,16 +89,16 @@ export function FounderStory() {
                       className="object-cover"
                     />
                   ) : (
-                    <span className="font-display text-lg font-bold text-white">
+                    <span className="font-display text-base sm:text-lg font-bold text-white">
                       {story.initials}
                     </span>
                   )}
                 </div>
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-semibold tracking-tight">
+                  <h3 className="font-display text-lg sm:text-2xl font-semibold tracking-tight">
                     {story.name}
                   </h3>
-                  <p className="text-sm text-signal mt-0.5 font-medium">{story.location}</p>
+                  <p className="text-xs sm:text-sm text-signal mt-0.5 font-medium">{story.location}</p>
                 </div>
               </div>
 

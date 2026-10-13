@@ -28,13 +28,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://futureix.in";
-const siteTitle = "FUTUREIX — Digital Marketing Agency & AI Solutions in Jaipur, Rajasthan";
+const siteUrl = "https://futureix.in/";
+const siteTitle = "FUTUREIX | Digital Marketing & Website Development Agency";
 const siteDescription =
-  "FUTUREIX is a Jaipur-based digital growth agency offering Meta Ads, Google Ads, website development, AI SaaS solutions, and actionable blogs & articles on digital growth and technology. Book a free consultation today.";
+  "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL("https://futureix.in"),
   title: {
     default: siteTitle,
     template: "%s · FUTUREIX",
@@ -42,19 +42,19 @@ export const metadata: Metadata = {
   description: siteDescription,
   keywords: [
     "digital marketing agency Jaipur",
+    "website development agency",
     "Meta Ads management",
     "Google Ads agency India",
-    "website development company Rajasthan",
+    "SEO services",
+    "AI automation",
     "AI SaaS solutions",
-    "digital marketing blogs",
-    "AI and technology articles",
     "FUTUREIX",
   ],
   authors: [{ name: "FUTUREIX" }],
   creator: "FUTUREIX",
   publisher: "FUTUREIX",
   alternates: {
-    canonical: siteUrl,
+    canonical: "https://futureix.in/",
   },
   verification: {
     google: "ZwGCPYomKyaqJp8bPSVhMMV8es1zKLidwMNLDoot0YI",
