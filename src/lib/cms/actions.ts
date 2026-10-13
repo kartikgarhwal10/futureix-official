@@ -24,6 +24,7 @@ import {
 import { verifyAdminCredentials, destroyAdminSession, requireAdminSession } from "./auth";
 import { isSupabaseAdminConfigured, getSupabaseAdminClient } from "./supabase";
 import { BlogStatus, CMSBlog, CMSSettings } from "./types";
+import { sanitizeHtml } from "./sanitize";
 
 // ==========================================
 // AUTH ACTIONS
@@ -52,6 +53,18 @@ export async function logoutAdminAction() {
 
 export async function saveBlogAction(blogData: Partial<CMSBlog>) {
   await requireAdminSession();
+
+  // Sanitize HTML content to prevent Stored XSS attacks
+  if (blogData.contentHtml) {
+    blogData.contentHtml = sanitizeHtml(blogData.contentHtml);
+  }
+  if (blogData.slug) {
+    blogData.slug = blogData.slug
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9-]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+  }
 
   let savedBlog: CMSBlog | null = null;
   if (blogData.id) {
@@ -265,8 +278,16 @@ export async function uploadMediaAction(formData: FormData) {
     }
   }
 
-  // 2. Fallback to local uploads directory
+  // 2. Fallback to local uploads directory (Development only)
   if (!finalUrl) {
+    if (process.env.NODE_ENV === "production") {
+      return {
+        success: false,
+        error:
+          "Production storage error: Supabase Storage is required for media uploads in production. Please configure NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.",
+      };
+    }
+
     const uploadDir = path.join(process.cwd(), "public", "uploads");
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });

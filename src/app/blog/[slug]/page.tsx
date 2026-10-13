@@ -11,7 +11,9 @@ import { Breadcrumbs } from "@/components/blog/Breadcrumbs";
 import { AuthorBioCard } from "@/components/blog/AuthorBioCard";
 import { ArticleJsonLd } from "@/components/blog/ArticleJsonLd";
 import { getAllBlogs, getBlogBySlug, getRelatedBlogs, type BlogPost } from "@/data/blogs";
-import { getPublishedBlogs, getPublishedBlogBySlug, getBlogBySlugAdmin } from "@/lib/cms/store";
+import { getPublishedBlogs, getBlogBySlugAdmin } from "@/lib/cms/store";
+import { getAdminSession } from "@/lib/cms/auth";
+import { sanitizeHtml } from "@/lib/cms/sanitize";
 import type { CMSBlog } from "@/lib/cms/types";
 import {
   ArrowRight,
@@ -22,6 +24,7 @@ import {
   Tag,
   HelpCircle,
   BookOpen,
+  ShieldAlert,
 } from "lucide-react";
 
 interface Props {
@@ -68,30 +71,61 @@ function cmsBlogToPublicBlogPost(blog: CMSBlog): BlogPost {
   };
 }
 
-async function loadArticle(slug: string, isPreview: boolean = false) {
+interface LoadedArticleResult {
+  post: BlogPost;
+  contentHtml?: string;
+  isPreview: boolean;
+  status?: string;
+}
+
+async function loadArticle(slug: string, requestedPreview: boolean = false): Promise<LoadedArticleResult | null> {
   let cmsBlog: CMSBlog | null = null;
   try {
-    if (isPreview) {
-      cmsBlog = await getBlogBySlugAdmin(slug);
-    } else {
-      cmsBlog = await getPublishedBlogBySlug(slug);
-    }
+    cmsBlog = await getBlogBySlugAdmin(slug);
   } catch (err) {
-    console.error("Error loading blog from CMS:", err);
+    console.error("Error checking CMS store for slug:", err);
   }
 
-  if (cmsBlog) {
-    return {
-      post: cmsBlogToPublicBlogPost(cmsBlog),
-      contentHtml: cmsBlog.contentHtml,
-    };
+  // 1. If article exists in CMS store:
+  if (cmsBlog && !cmsBlog.deletedAt) {
+    const isActuallyPublished =
+      cmsBlog.status === "published" &&
+      (!cmsBlog.scheduledAt || new Date(cmsBlog.scheduledAt) <= new Date());
+
+    if (isActuallyPublished) {
+      return {
+        post: cmsBlogToPublicBlogPost(cmsBlog),
+        contentHtml: cmsBlog.contentHtml ? sanitizeHtml(cmsBlog.contentHtml) : undefined,
+        isPreview: false,
+        status: "published",
+      };
+    }
+
+    // Article is draft, scheduled, or archived: ONLY accessible if authenticated as admin
+    if (requestedPreview) {
+      const session = await getAdminSession();
+      if (session) {
+        return {
+          post: cmsBlogToPublicBlogPost(cmsBlog),
+          contentHtml: cmsBlog.contentHtml ? sanitizeHtml(cmsBlog.contentHtml) : undefined,
+          isPreview: true,
+          status: cmsBlog.status,
+        };
+      }
+    }
+
+    // Unauthenticated or not in preview mode: Strict 404 (DO NOT fall back to hardcoded data)
+    return null;
   }
 
+  // 2. Fallback to hardcoded seed data ONLY if article does not exist in CMS store
   const fallback = getBlogBySlug(slug);
   if (fallback) {
     return {
       post: fallback,
       contentHtml: undefined,
+      isPreview: false,
+      status: "published",
     };
   }
 
@@ -124,10 +158,14 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   if (!data || !data.post) {
     return {
       title: "Article Not Found · FUTUREIX",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  const { post } = data;
+  const { post, isPreview: isPreviewMode } = data;
   const siteUrl = "https://futureix.in";
   const url = `${siteUrl}/blog/${post.slug}`;
 
@@ -136,6 +174,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
     description: post.metaDescription,
     keywords: [post.primaryKeyword, ...post.secondaryKeywords, ...post.tags],
     authors: [{ name: post.author.name }],
+    robots: isPreviewMode ? { index: false, follow: false } : undefined,
     alternates: {
       canonical: url,
     },
@@ -168,7 +207,7 @@ export default async function ArticlePage({ params, searchParams }: Props) {
     notFound();
   }
 
-  const { post, contentHtml } = data;
+  const { post, contentHtml, isPreview: isPreviewMode, status } = data;
   const siteUrl = "https://futureix.in";
   const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
   const relatedPosts = getRelatedBlogs(post.slug, post.category, 3);
@@ -181,6 +220,25 @@ export default async function ArticlePage({ params, searchParams }: Props) {
       <Navbar />
 
       <main className="flex-1 relative z-10 pt-32 sm:pt-36 pb-20">
+        {isPreviewMode && (
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 mb-6">
+            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-900 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-medium">
+                <ShieldAlert size={18} className="text-amber-600 shrink-0" />
+                <span>
+                  <strong>Admin Preview Mode:</strong> This post is currently in{" "}
+                  <span className="uppercase font-bold tracking-wider">{status}</span> status and is not visible to public visitors or search engines.
+                </span>
+              </div>
+              <Link
+                href="/admin/blogs"
+                className="px-3.5 py-1.5 rounded-full bg-amber-600 text-white text-xs font-bold hover:bg-amber-700 transition-colors whitespace-nowrap shrink-0"
+              >
+                Back to CMS
+              </Link>
+            </div>
+          </div>
+        )}
         <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <div className="mb-8">

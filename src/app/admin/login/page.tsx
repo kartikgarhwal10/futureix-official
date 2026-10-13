@@ -6,13 +6,15 @@ import Link from "next/link";
 import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle, ArrowLeft } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { loginAdminAction } from "@/lib/cms/actions";
+import { sanitizeRedirectPath } from "@/lib/cms/sanitize";
 
 export const dynamic = "force-dynamic";
 
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectTarget = searchParams.get("redirect") || "/admin/dashboard";
+  const rawRedirect = searchParams.get("redirect");
+  const redirectTarget = sanitizeRedirectPath(rawRedirect, "/admin/dashboard");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
