@@ -205,10 +205,10 @@ export default function PrivacyPolicy() {
                   </a>
                 </p>
                 <p>
-                  <strong className="text-foreground">Head Office Address:</strong> Haidergarh, Barabanki, Uttar Pradesh, India
+                  <strong className="text-foreground">Main Office Address:</strong> Jaipur, Rajasthan, India
                 </p>
                 <p>
-                  <strong className="text-foreground">Branch Office Address:</strong> Jaipur, Rajasthan, India
+                  <strong className="text-foreground">Branch Office Address:</strong> Haidergarh, Barabanki, Uttar Pradesh, India
                 </p>
               </div>
             </section>

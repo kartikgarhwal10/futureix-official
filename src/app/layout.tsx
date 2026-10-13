@@ -96,8 +96,8 @@ const structuredData = {
   telephone: "+91-73550-24385",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Haidergarh",
-    addressRegion: "Uttar Pradesh",
+    addressLocality: "Jaipur",
+    addressRegion: "Rajasthan",
     addressCountry: "IN",
   },
   founder: [

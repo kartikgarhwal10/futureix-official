@@ -138,13 +138,13 @@ export function ContactCta() {
             </a>
             <span className="flex items-center gap-2">
               <MapPin size={15} className="text-signal" />
-              <span className="font-semibold text-foreground">Head Office:</span> Haidergarh,
-              Barabanki, UP
+              <span className="font-semibold text-foreground">Main Office:</span> Jaipur,
+              Rajasthan, India
             </span>
             <span className="flex items-center gap-2">
               <MapPin size={15} className="text-signal" />
-              <span className="font-semibold text-foreground">Branch Office:</span> Jaipur,
-              Rajasthan, India
+              <span className="font-semibold text-foreground">Branch Office:</span> Haidergarh,
+              Barabanki, UP
             </span>
           </div>
         </motion.div>
