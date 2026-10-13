@@ -8,6 +8,8 @@ import {
   LayoutTemplate,
   Megaphone,
   Search,
+  Calculator,
+  ArrowUpRight,
   type LucideIcon,
 } from "lucide-react";
 import { services } from "@/data/services";
@@ -82,6 +84,38 @@ export function Services() {
             );
           })}
         </div>
+
+        {/* Live Quote Calculation Engine Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="mt-14 rounded-3xl glass p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden bg-white/70"
+        >
+          <div className="space-y-2 text-center md:text-left max-w-2xl">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3 py-1 text-[11px] font-mono font-bold uppercase text-background">
+              <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
+              Live Calculation Engine
+            </div>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">
+              Need a customized quotation before speaking with our team?
+            </h3>
+            <p className="text-sm text-muted leading-relaxed">
+              Select your exact platforms, page counts, API integrations, and features to calculate an itemized estimate with delivery milestones in 60 seconds.
+            </p>
+          </div>
+          <a
+            href="https://futureix-quote-landing-page.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 rounded-full bg-signal px-7 py-4 text-sm font-bold text-white shadow-[3px_3px_0_0_#0d0d0a] hover:scale-105 active:scale-95 transition-all group cursor-pointer"
+          >
+            <Calculator size={18} className="text-lime" />
+            <span>Calculate Your Project</span>
+            <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

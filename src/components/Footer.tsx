@@ -1,12 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
 import { Logo } from "./Logo";
 import { WHATSAPP_LINK } from "@/lib/whatsapp";
 
 const quickLinks = [
+  {
+    label: "Instant Quote Calculator",
+    href: "https://futureix-quote-landing-page.vercel.app/",
+    isExternal: true,
+    badge: "Live",
+  },
   { label: "Services", href: "/#services" },
   { label: "Work From Home (₹3,000)", href: "/#wfh" },
   { label: "Blogs & Articles", href: "/#blogs" },
@@ -71,9 +77,26 @@ export function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted hover:text-foreground">
-                    {link.label}
-                  </Link>
+                  {"isExternal" in link && link.isExternal ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors group"
+                    >
+                      <span className="group-hover:text-signal transition-colors">{link.label}</span>
+                      {link.badge && (
+                        <span className="rounded bg-signal/15 text-signal px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase">
+                          {link.badge}
+                        </span>
+                      )}
+                      <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-signal" />
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="text-sm text-muted hover:text-foreground">
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

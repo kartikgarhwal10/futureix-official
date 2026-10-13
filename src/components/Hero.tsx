@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useTransform, useSpring, Variants } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Calculator, ArrowUpRight } from "lucide-react";
 
 const container: Variants = {
   hidden: {},
@@ -115,10 +115,22 @@ export function Hero() {
       >
         <motion.div
           variants={item}
-          className="glass mx-auto mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono-label text-[11px] sm:text-xs uppercase text-muted border border-black/10"
+          className="glass mx-auto mb-6 inline-flex flex-wrap items-center justify-center gap-2 rounded-full px-4 py-2 font-mono-label text-[11px] sm:text-xs uppercase text-muted border border-black/10"
         >
-          <Sparkles size={14} className="text-signal" />
-          Future-ready AI &amp; Digital Growth Partner
+          <span className="inline-flex items-center gap-1.5">
+            <Sparkles size={14} className="text-signal" />
+            Future-ready AI &amp; Digital Growth Partner
+          </span>
+          <span className="hidden sm:inline text-black/30">|</span>
+          <a
+            href="https://futureix-quote-landing-page.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-signal font-bold hover:underline inline-flex items-center gap-1 transition-colors"
+          >
+            <span>Live Quote Engine</span>
+            <ArrowUpRight size={12} />
+          </a>
         </motion.div>
 
         <motion.h1
@@ -139,8 +151,20 @@ export function Hero() {
 
         <motion.div
           variants={item}
-          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 flex-wrap"
         >
+          <motion.a
+            href="https://futureix-quote-landing-page.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 rounded-full bg-signal px-8 py-4 text-sm font-bold text-white shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] hover:shadow-[6px_6px_0_0_rgba(13,13,10,0.9)] transition-all cursor-pointer"
+          >
+            <Calculator size={16} className="text-lime shrink-0" />
+            <span>Instant Quote Calculator</span>
+            <ArrowUpRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </motion.a>
           <motion.button
             onClick={() => scrollToSection("services")}
             whileTap={{ scale: 0.97 }}

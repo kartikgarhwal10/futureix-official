@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Mail, MapPin, MessageCircle, Phone, Send, X } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone, Send, X, Calculator, ArrowUpRight } from "lucide-react";
 import { services } from "@/data/services";
 import { buildWhatsAppLink, WHATSAPP_LINK } from "@/lib/whatsapp";
 import { SectionTag } from "@/components/SectionTag";
@@ -94,7 +94,19 @@ export function ContactCta() {
             accelerate your business or career.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 flex-wrap">
+            <motion.a
+              href="https://futureix-quote-landing-page.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="group inline-flex items-center gap-2 rounded-full bg-signal px-8 py-4 text-sm font-bold text-white shadow-[4px_4px_0_0_rgba(13,13,10,0.9)] transition-all hover:shadow-[6px_6px_0_0_rgba(13,13,10,0.9)] cursor-pointer"
+            >
+              <Calculator size={16} className="text-lime" />
+              <span>Calculate Project Quote</span>
+              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </motion.a>
             <motion.button
               type="button"
               onClick={() => setIsOpen(true)}
