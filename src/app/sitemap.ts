@@ -1,14 +1,33 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogs } from "@/data/blogs";
+import { getPublishedBlogs } from "@/lib/cms/store";
 
 const siteUrl = "https://futureix.in";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const blogs = getAllBlogs();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  let blogs: { slug: string; lastModified: Date }[] = [];
+  try {
+    const cmsBlogs = await getPublishedBlogs();
+    if (cmsBlogs && cmsBlogs.length > 0) {
+      blogs = cmsBlogs.map((b) => ({
+        slug: b.slug,
+        lastModified: b.updatedAt ? new Date(b.updatedAt) : new Date(b.publishedAt || b.createdAt),
+      }));
+    }
+  } catch (err) {
+    console.error("Error loading sitemap blogs from CMS:", err);
+  }
+
+  if (blogs.length === 0) {
+    blogs = getAllBlogs().map((b) => ({
+      slug: b.slug,
+      lastModified: b.updatedAt ? new Date(b.updatedAt) : new Date(b.publishedAt),
+    }));
+  }
 
   const blogEntries: MetadataRoute.Sitemap = blogs.map((blog) => ({
     url: `${siteUrl}/blog/${blog.slug}`,
-    lastModified: blog.updatedAt ? new Date(blog.updatedAt) : new Date(blog.publishedAt),
+    lastModified: blog.lastModified,
     changeFrequency: "monthly",
     priority: 0.8,
   }));

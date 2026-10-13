@@ -10,7 +10,9 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Breadcrumbs } from "@/components/blog/Breadcrumbs";
 import { AuthorBioCard } from "@/components/blog/AuthorBioCard";
 import { ArticleJsonLd } from "@/components/blog/ArticleJsonLd";
-import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from "@/data/blogs";
+import { getAllBlogs, getBlogBySlug, getRelatedBlogs, type BlogPost } from "@/data/blogs";
+import { getPublishedBlogs, getPublishedBlogBySlug, getBlogBySlugAdmin } from "@/lib/cms/store";
+import type { CMSBlog } from "@/lib/cms/types";
 import {
   ArrowRight,
   Calendar,
@@ -24,25 +26,108 @@ import {
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ preview?: string }>;
+}
+
+function cmsBlogToPublicBlogPost(blog: CMSBlog): BlogPost {
+  return {
+    id: blog.id,
+    slug: blog.slug,
+    title: blog.title,
+    metaTitle: blog.metaTitle || blog.title,
+    metaDescription: blog.metaDescription || blog.excerpt,
+    excerpt: blog.excerpt,
+    category: blog.category as BlogPost["category"],
+    readTime: blog.readTime || "5 min read",
+    publishedAt: blog.publishedAt || blog.createdAt.slice(0, 10),
+    updatedAt: blog.updatedAt,
+    author: {
+      name: blog.author.name,
+      role: blog.author.role,
+      avatar: blog.author.avatar,
+      bio: blog.author.bio,
+    },
+    tags: blog.tags || [],
+    featured: blog.featured,
+    themeGradient: blog.themeGradient || "from-electric-blue/20 to-purple/20",
+    image: blog.image,
+    imageAlt: blog.imageAlt || blog.title,
+    primaryKeyword: blog.primaryKeyword || "",
+    secondaryKeywords: blog.secondaryKeywords || [],
+    content: {
+      introduction: blog.excerpt,
+      sections: blog.sections || [],
+      conclusion: "Partner with FUTUREIX to scale your digital growth.",
+    },
+    faqs: blog.faqs || [],
+    relatedService: blog.relatedService || {
+      name: "Digital Marketing & SEO",
+      href: "/#services",
+      description: "Scale your customer acquisition with our result-driven campaigns.",
+    },
+  };
+}
+
+async function loadArticle(slug: string, isPreview: boolean = false) {
+  let cmsBlog: CMSBlog | null = null;
+  try {
+    if (isPreview) {
+      cmsBlog = await getBlogBySlugAdmin(slug);
+    } else {
+      cmsBlog = await getPublishedBlogBySlug(slug);
+    }
+  } catch (err) {
+    console.error("Error loading blog from CMS:", err);
+  }
+
+  if (cmsBlog) {
+    return {
+      post: cmsBlogToPublicBlogPost(cmsBlog),
+      contentHtml: cmsBlog.contentHtml,
+    };
+  }
+
+  const fallback = getBlogBySlug(slug);
+  if (fallback) {
+    return {
+      post: fallback,
+      contentHtml: undefined,
+    };
+  }
+
+  return null;
 }
 
 export async function generateStaticParams() {
+  try {
+    const cmsBlogs = await getPublishedBlogs();
+    if (cmsBlogs && cmsBlogs.length > 0) {
+      return cmsBlogs.map((post) => ({ slug: post.slug }));
+    }
+  } catch {
+    // fallback
+  }
+
   const posts = getAllBlogs();
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogBySlug(slug);
+  const sParams = searchParams ? await searchParams : {};
+  const isPreview = sParams.preview === "true";
 
-  if (!post) {
+  const data = await loadArticle(slug, isPreview);
+
+  if (!data || !data.post) {
     return {
       title: "Article Not Found · FUTUREIX",
     };
   }
 
+  const { post } = data;
   const siteUrl = "https://futureix.in";
   const url = `${siteUrl}/blog/${post.slug}`;
 
@@ -72,14 +157,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ArticlePage({ params }: Props) {
+export default async function ArticlePage({ params, searchParams }: Props) {
   const { slug } = await params;
-  const post = getBlogBySlug(slug);
+  const sParams = searchParams ? await searchParams : {};
+  const isPreview = sParams.preview === "true";
 
-  if (!post) {
+  const data = await loadArticle(slug, isPreview);
+
+  if (!data || !data.post) {
     notFound();
   }
 
+  const { post, contentHtml } = data;
   const siteUrl = "https://futureix.in";
   const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
   const relatedPosts = getRelatedBlogs(post.slug, post.category, 3);
@@ -194,78 +283,87 @@ export default async function ArticlePage({ params }: Props) {
 
           {/* Article Main Body Content */}
           <div className="mt-12 space-y-12 text-foreground">
-            {post.content.sections.map((section, idx) => (
-              <section key={idx} className="space-y-4">
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight border-b border-border/60 pb-3">
-                  {section.heading}
-                </h2>
+            {contentHtml ? (
+              <div
+                className="prose prose-zinc max-w-none text-base sm:text-lg text-foreground/90 leading-relaxed space-y-6"
+                dangerouslySetInnerHTML={{ __html: contentHtml }}
+              />
+            ) : (
+              <>
+                {post.content.sections.map((section, idx) => (
+                  <section key={idx} className="space-y-4">
+                    <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight border-b border-border/60 pb-3">
+                      {section.heading}
+                    </h2>
 
-                {/* Body Text Paragraphs */}
-                <div className="prose prose-zinc max-w-none text-base sm:text-lg text-muted leading-relaxed space-y-4">
-                  {section.body.split("\n\n").map((para, pIdx) => (
-                    <p key={pIdx} className="text-foreground/90">
-                      {para}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Key Takeaways Callout */}
-                {section.takeaways && section.takeaways.length > 0 && (
-                  <div className="my-6 rounded-2xl bg-white border border-border p-6 shadow-sm space-y-3">
-                    <div className="font-mono-label text-xs uppercase tracking-wider text-signal font-bold flex items-center gap-2">
-                      <Sparkles size={14} />
-                      Key Strategic Takeaways
-                    </div>
-                    <ul className="space-y-2.5">
-                      {section.takeaways.map((takeaway, tIdx) => (
-                        <li key={tIdx} className="flex items-start gap-3 text-sm sm:text-base text-foreground">
-                          <CheckCircle2 size={18} className="text-signal shrink-0 mt-0.5" />
-                          <span>{takeaway}</span>
-                        </li>
+                    {/* Body Text Paragraphs */}
+                    <div className="prose prose-zinc max-w-none text-base sm:text-lg text-muted leading-relaxed space-y-4">
+                      {section.body.split("\n\n").map((para, pIdx) => (
+                        <p key={pIdx} className="text-foreground/90">
+                          {para}
+                        </p>
                       ))}
-                    </ul>
-                  </div>
-                )}
+                    </div>
 
-                {/* Data Table */}
-                {section.table && (
-                  <div className="my-8 overflow-x-auto rounded-2xl border border-border bg-white shadow-sm">
-                    <table className="w-full text-left text-xs sm:text-sm">
-                      <thead className="bg-black/5 font-mono-label text-xs uppercase text-foreground border-b border-border">
-                        <tr>
-                          {section.table.headers.map((header, hIdx) => (
-                            <th key={hIdx} className="px-4 py-3.5 font-bold">
-                              {header}
-                            </th>
+                    {/* Key Takeaways Callout */}
+                    {section.takeaways && section.takeaways.length > 0 && (
+                      <div className="my-6 rounded-2xl bg-white border border-border p-6 shadow-sm space-y-3">
+                        <div className="font-mono-label text-xs uppercase tracking-wider text-signal font-bold flex items-center gap-2">
+                          <Sparkles size={14} />
+                          Key Strategic Takeaways
+                        </div>
+                        <ul className="space-y-2.5">
+                          {section.takeaways.map((takeaway, tIdx) => (
+                            <li key={tIdx} className="flex items-start gap-3 text-sm sm:text-base text-foreground">
+                              <CheckCircle2 size={18} className="text-signal shrink-0 mt-0.5" />
+                              <span>{takeaway}</span>
+                            </li>
                           ))}
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-border">
-                        {section.table.rows.map((row, rIdx) => (
-                          <tr key={rIdx} className="hover:bg-black/[0.02] transition-colors">
-                            {row.map((cell, cIdx) => (
-                              <td key={cIdx} className="px-4 py-3.5 text-muted font-medium">
-                                {cell}
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </section>
-            ))}
+                        </ul>
+                      </div>
+                    )}
 
-            {/* Conclusion */}
-            <div className="rounded-3xl bg-gradient-to-r from-electric-blue/10 via-purple/10 to-transparent p-8 border border-border space-y-3 shadow-sm">
-              <h3 className="font-display text-xl font-bold text-foreground">
-                Conclusion &amp; Implementation Summary
-              </h3>
-              <p className="text-base sm:text-lg text-muted leading-relaxed">
-                {post.content.conclusion}
-              </p>
-            </div>
+                    {/* Data Table */}
+                    {section.table && (
+                      <div className="my-8 overflow-x-auto rounded-2xl border border-border bg-white shadow-sm">
+                        <table className="w-full text-left text-xs sm:text-sm">
+                          <thead className="bg-black/5 font-mono-label text-xs uppercase text-foreground border-b border-border">
+                            <tr>
+                              {section.table.headers.map((header, hIdx) => (
+                                <th key={hIdx} className="px-4 py-3.5 font-bold">
+                                  {header}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-border">
+                            {section.table.rows.map((row, rIdx) => (
+                              <tr key={rIdx} className="hover:bg-black/[0.02] transition-colors">
+                                {row.map((cell, cIdx) => (
+                                  <td key={cIdx} className="px-4 py-3.5 text-muted font-medium">
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </section>
+                ))}
+
+                {/* Conclusion */}
+                <div className="rounded-3xl bg-gradient-to-r from-electric-blue/10 via-purple/10 to-transparent p-8 border border-border space-y-3 shadow-sm">
+                  <h3 className="font-display text-xl font-bold text-foreground">
+                    Conclusion &amp; Implementation Summary
+                  </h3>
+                  <p className="text-base sm:text-lg text-muted leading-relaxed">
+                    {post.content.conclusion}
+                  </p>
+                </div>
+              </>
+            )}
 
             {/* FAQ Section */}
             {post.faqs && post.faqs.length > 0 && (

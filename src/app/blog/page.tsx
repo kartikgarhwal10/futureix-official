@@ -9,7 +9,9 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SectionTag } from "@/components/SectionTag";
 import { BlogSearchFilter } from "@/components/blog/BlogSearchFilter";
 import { Breadcrumbs } from "@/components/blog/Breadcrumbs";
-import { getAllBlogs } from "@/data/blogs";
+import { getAllBlogs as getHardcodedFallbackBlogs, type BlogPost } from "@/data/blogs";
+import { getPublishedBlogs } from "@/lib/cms/store";
+import type { CMSBlog } from "@/lib/cms/types";
 import { ArrowRight, Layers } from "lucide-react";
 
 const siteUrl = "https://futureix.in";
@@ -38,8 +40,59 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
-  const blogs = getAllBlogs();
+function cmsBlogToPublicBlogPost(blog: CMSBlog): BlogPost {
+  return {
+    id: blog.id,
+    slug: blog.slug,
+    title: blog.title,
+    metaTitle: blog.metaTitle || blog.title,
+    metaDescription: blog.metaDescription || blog.excerpt,
+    excerpt: blog.excerpt,
+    category: blog.category as BlogPost["category"],
+    readTime: blog.readTime || "5 min read",
+    publishedAt: blog.publishedAt || blog.createdAt.slice(0, 10),
+    updatedAt: blog.updatedAt,
+    author: {
+      name: blog.author.name,
+      role: blog.author.role,
+      avatar: blog.author.avatar,
+      bio: blog.author.bio,
+    },
+    tags: blog.tags || [],
+    featured: blog.featured,
+    themeGradient: blog.themeGradient || "from-electric-blue/20 to-purple/20",
+    image: blog.image,
+    imageAlt: blog.imageAlt || blog.title,
+    primaryKeyword: blog.primaryKeyword || "",
+    secondaryKeywords: blog.secondaryKeywords || [],
+    content: {
+      introduction: blog.excerpt,
+      sections: blog.sections || [],
+      conclusion: "Partner with FUTUREIX to scale your digital growth.",
+    },
+    faqs: blog.faqs || [],
+    relatedService: blog.relatedService || {
+      name: "Digital Marketing & SEO",
+      href: "/#services",
+      description: "Scale your customer acquisition with our result-driven campaigns.",
+    },
+  };
+}
+
+export default async function BlogPage() {
+  let blogs: BlogPost[] = [];
+  try {
+    const cmsBlogs = await getPublishedBlogs();
+    if (cmsBlogs && cmsBlogs.length > 0) {
+      blogs = cmsBlogs.map(cmsBlogToPublicBlogPost);
+    }
+  } catch (err) {
+    console.error("Error loading CMS blogs:", err);
+  }
+
+  if (blogs.length === 0) {
+    blogs = getHardcodedFallbackBlogs();
+  }
 
   const blogIndexSchema = {
     "@context": "https://schema.org",
