@@ -9,6 +9,7 @@ import { Logo } from "./Logo";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "#services" },
   { label: "Blogs & Articles", href: "#blogs" },
   { label: "Why Us", href: "#why-choose" },
@@ -78,10 +79,20 @@ export function Navbar() {
   const handleNav = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     setOpen(false);
-    if (pathname !== "/") {
-      router.push("/" + href);
+    if (href.startsWith("/")) {
+      if (pathname === href) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push(href);
+      }
+    } else if (href.startsWith("#")) {
+      if (pathname !== "/") {
+        router.push("/" + href);
+      } else {
+        scrollToSection(href);
+      }
     } else {
-      scrollToSection(href);
+      router.push("/" + href);
     }
   };
 
@@ -103,22 +114,31 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNav(e, link.href)}
-                className="relative px-2 xl:px-3 py-1.5 xl:py-2 font-mono-label text-[11px] xl:text-xs uppercase text-muted hover:text-foreground transition-colors group flex items-center gap-1.5 whitespace-nowrap"
-              >
-                {link.label}
-                {link.badge && (
-                  <span className="rounded-full bg-signal px-1.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-tight">
-                    {link.badge}
-                  </span>
-                )}
-                <span className="absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-signal rounded-full transition-all duration-300 group-hover:w-3/4" />
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNav(e, link.href)}
+                  className={`relative px-1.5 xl:px-2.5 py-1.5 xl:py-2 font-mono-label text-[10px] xl:text-xs uppercase transition-colors group flex items-center gap-1.5 whitespace-nowrap ${
+                    isActive ? "text-foreground font-bold" : "text-muted hover:text-foreground"
+                  }`}
+                >
+                  {link.label}
+                  {link.badge && (
+                    <span className="rounded-full bg-signal px-1.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-tight">
+                      {link.badge}
+                    </span>
+                  )}
+                  <span
+                    className={`absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 bg-signal rounded-full transition-all duration-300 ${
+                      isActive ? "w-3/4" : "w-0 group-hover:w-3/4"
+                    }`}
+                  />
+                </a>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">

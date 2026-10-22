@@ -13,10 +13,10 @@ const quickLinks = [
     isExternal: true,
     badge: "Live",
   },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/#services" },
   { label: "Work From Home (₹3,000)", href: "/#wfh" },
   { label: "Blogs & Articles", href: "/#blogs" },
-  { label: "About", href: "/#founders" },
   { label: "Contact", href: "/#contact" },
 ];
 
