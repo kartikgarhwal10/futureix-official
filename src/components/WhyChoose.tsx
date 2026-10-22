@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Compass, Target, Wrench, Users } from "lucide-react";
+import { Compass, Target, Wrench, Users, ArrowRight } from "lucide-react";
 import { SectionTag } from "@/components/SectionTag";
 
 const items = [
@@ -77,6 +78,22 @@ export function WhyChoose() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-foreground hover:text-signal transition-colors group glass px-6 py-3 rounded-full bg-white/80"
+          >
+            <span>Learn more about FUTUREIX, our mission &amp; story</span>
+            <ArrowRight size={14} className="text-signal transition-transform group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

@@ -2,9 +2,9 @@ import { BlogPost } from "./types";
 
 const defaultAuthor = {
   name: "Kartik Garhwal",
-  role: "Founder, Futureix",
+  role: "Founder, FUTUREIX",
   avatar: "KG",
-  bio: "Kartik Garhwal is the Founder of Futureix, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
+  bio: "Kartik Garhwal is the Founder of FUTUREIX, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
 };
 
 export const seoBlogs: BlogPost[] = [
@@ -80,7 +80,7 @@ export const seoBlogs: BlogPost[] = [
     relatedService: {
       name: "Organic SEO Services",
       href: "/#services",
-      description: "Scale your organic search rankings with Futureix technical SEO team.",
+      description: "Scale your organic search rankings with FUTUREIX technical SEO team.",
     },
   },
   {
@@ -155,7 +155,7 @@ export const seoBlogs: BlogPost[] = [
     relatedService: {
       name: "Local SEO & Google Maps Strategy",
       href: "/#services",
-      description: "Rank top 3 on Google Maps in Jaipur with Futureix local SEO framework.",
+      description: "Rank top 3 on Google Maps in Jaipur with FUTUREIX local SEO framework.",
     },
   },
   {
@@ -230,7 +230,7 @@ export const seoBlogs: BlogPost[] = [
     relatedService: {
       name: "Google Business Profile Optimization",
       href: "/#services",
-      description: "Let Futureix audit and fully optimize your local Google listings.",
+      description: "Let FUTUREIX audit and fully optimize your local Google listings.",
     },
   },
   {
@@ -301,7 +301,7 @@ export const seoBlogs: BlogPost[] = [
     relatedService: {
       name: "Long-Term SEO Strategy",
       href: "/#services",
-      description: "Build a lasting organic growth strategy with Futureix SEO team.",
+      description: "Build a lasting organic growth strategy with FUTUREIX SEO team.",
     },
   },
   {
@@ -373,7 +373,7 @@ export const seoBlogs: BlogPost[] = [
     relatedService: {
       name: "SEO Audit & Technical Cleanup",
       href: "/#services",
-      description: "Get a comprehensive technical SEO audit from Futureix engineers.",
+      description: "Get a comprehensive technical SEO audit from FUTUREIX engineers.",
     },
   },
   {
@@ -423,7 +423,7 @@ export const seoBlogs: BlogPost[] = [
         },
         {
           heading: "3. Questions to Ask During Your Vetting Call",
-          body: "Ask these direct questions before signing:\n\n1. 'How do you handle technical site optimizations when custom code edits are needed?'\n2. 'Can you show us a real Google Search Console performance case study for a client in our sector?'\n3. 'What is your process if a core algorithm update affects rankings?'\n\nAgencies like [Futureix](/) maintain full client data transparency and build white-hat search strategies tailored to your industry.",
+          body: "Ask these direct questions before signing:\n\n1. 'How do you handle technical site optimizations when custom code edits are needed?'\n2. 'Can you show us a real Google Search Console performance case study for a client in our sector?'\n3. 'What is your process if a core algorithm update affects rankings?'\n\nAgencies like [FUTUREIX](/) maintain full client data transparency and build white-hat search strategies tailored to your industry.",
         },
       ],
       conclusion:
@@ -444,7 +444,7 @@ export const seoBlogs: BlogPost[] = [
     relatedService: {
       name: "Enterprise SEO Services",
       href: "/#services",
-      description: "Partner with Futureix for transparent, revenue-focused search optimization.",
+      description: "Partner with FUTUREIX for transparent, revenue-focused search optimization.",
     },
   },
 ];

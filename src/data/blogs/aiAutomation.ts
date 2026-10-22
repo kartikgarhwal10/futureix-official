@@ -2,9 +2,9 @@ import { BlogPost } from "./types";
 
 const defaultAuthor = {
   name: "Kartik Garhwal",
-  role: "Founder, Futureix",
+  role: "Founder, FUTUREIX",
   avatar: "KG",
-  bio: "Kartik Garhwal is the Founder of Futureix, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
+  bio: "Kartik Garhwal is the Founder of FUTUREIX, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
 };
 
 export const aiAutomationBlogs: BlogPost[] = [
@@ -76,7 +76,7 @@ export const aiAutomationBlogs: BlogPost[] = [
     relatedService: {
       name: "Custom AI & Automation Tools",
       href: "/#services",
-      description: "Build custom AI workflows and SaaS integrations with Futureix.",
+      description: "Build custom AI workflows and SaaS integrations with FUTUREIX.",
     },
   },
   {
@@ -147,7 +147,7 @@ export const aiAutomationBlogs: BlogPost[] = [
     relatedService: {
       name: "AI Lead Chatbot Integration",
       href: "/#services",
-      description: "Deploy custom conversational AI tools with Futureix team.",
+      description: "Deploy custom conversational AI tools with FUTUREIX team.",
     },
   },
   {
@@ -218,7 +218,7 @@ export const aiAutomationBlogs: BlogPost[] = [
     relatedService: {
       name: "Automated Lead Funnels",
       href: "/#services",
-      description: "Build automated sales follow-up systems with Futureix engineering team.",
+      description: "Build automated sales follow-up systems with FUTUREIX engineering team.",
     },
   },
   {
@@ -289,7 +289,7 @@ export const aiAutomationBlogs: BlogPost[] = [
     relatedService: {
       name: "AI Solutions & Integrations",
       href: "/#services",
-      description: "Integrate custom AI productivity tools into your business with Futureix.",
+      description: "Integrate custom AI productivity tools into your business with FUTUREIX.",
     },
   },
 ];

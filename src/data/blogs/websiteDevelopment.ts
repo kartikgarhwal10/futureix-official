@@ -2,9 +2,9 @@ import { BlogPost } from "./types";
 
 const defaultAuthor = {
   name: "Kartik Garhwal",
-  role: "Founder, Futureix",
+  role: "Founder, FUTUREIX",
   avatar: "KG",
-  bio: "Kartik Garhwal is the Founder of Futureix, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
+  bio: "Kartik Garhwal is the Founder of FUTUREIX, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
 };
 
 export const websiteDevelopmentBlogs: BlogPost[] = [
@@ -81,7 +81,7 @@ export const websiteDevelopmentBlogs: BlogPost[] = [
     relatedService: {
       name: "Web Development & Landing Pages",
       href: "/#services",
-      description: "Build custom high-converting web assets with Futureix.",
+      description: "Build custom high-converting web assets with FUTUREIX.",
     },
   },
   {
@@ -155,7 +155,7 @@ export const websiteDevelopmentBlogs: BlogPost[] = [
     relatedService: {
       name: "Custom Website Development",
       href: "/#services",
-      description: "Upgrade your web presence with Futureix modern dev team.",
+      description: "Upgrade your web presence with FUTUREIX modern dev team.",
     },
   },
   {
@@ -226,7 +226,7 @@ export const websiteDevelopmentBlogs: BlogPost[] = [
     relatedService: {
       name: "Bespoke Web Engineering",
       href: "/#services",
-      description: "Get a clear pricing quote for your custom website build with Futureix.",
+      description: "Get a clear pricing quote for your custom website build with FUTUREIX.",
     },
   },
   {
@@ -298,7 +298,7 @@ export const websiteDevelopmentBlogs: BlogPost[] = [
     relatedService: {
       name: "CRO & Funnel Optimization",
       href: "/#services",
-      description: "Let Futureix audit and repair your website conversion funnel.",
+      description: "Let FUTUREIX audit and repair your website conversion funnel.",
     },
   },
   {
@@ -369,7 +369,7 @@ export const websiteDevelopmentBlogs: BlogPost[] = [
     relatedService: {
       name: "Conversion Optimization Services",
       href: "/#services",
-      description: "Boost your lead conversion rates with Futureix CRO team.",
+      description: "Boost your lead conversion rates with FUTUREIX CRO team.",
     },
   },
 ];

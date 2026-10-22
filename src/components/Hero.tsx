@@ -137,6 +137,9 @@ export function Hero() {
           variants={item}
           className="font-display text-[26px] xs:text-3xl sm:text-5xl lg:text-7xl leading-[1.12] sm:leading-[1.08] tracking-tight"
         >
+          <span className="block text-xs sm:text-sm md:text-base font-mono-label uppercase tracking-widest text-signal mb-2.5 sm:mb-3 font-semibold">
+            FUTUREIX · AI, Marketing &amp; Technology Agency
+          </span>
           Digital Marketing &amp; Website Development for{" "}
           <span className="font-accent text-signal">Growing Businesses</span>
         </motion.h1>
@@ -145,7 +148,7 @@ export function Hero() {
           variants={item}
           className="mx-auto mt-4 sm:mt-6 max-w-2xl text-sm sm:text-lg text-muted leading-relaxed px-1 sm:px-0"
         >
-          We help businesses attract customers and grow online with performance marketing, modern websites, search engine optimization and AI-powered solutions.
+          <strong className="text-foreground font-semibold">FUTUREIX</strong> helps businesses attract customers and grow online with performance marketing, modern websites, search engine optimization and AI-powered solutions.
         </motion.p>
 
         <motion.div

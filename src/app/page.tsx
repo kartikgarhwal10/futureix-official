@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   description:
     "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.",
   alternates: {
-    canonical: "https://futureix.in/",
+    canonical: "https://futureix.in",
   },
   openGraph: {
     title: "FUTUREIX | Digital Marketing & Website Development Agency",
     description:
       "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.",
-    url: "https://futureix.in/",
+    url: "https://futureix.in",
     siteName: "FUTUREIX",
     locale: "en_IN",
     type: "website",

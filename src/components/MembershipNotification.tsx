@@ -165,7 +165,7 @@ export function MembershipNotification() {
     if (wfhSection) {
       wfhSection.scrollIntoView({ behavior: "smooth" });
     } else {
-      const msg = "Hello FUTUREIX Team, I saw someone just joined FutureIX 3000 Membership and I would like to register too!";
+      const msg = "Hello FUTUREIX Team, I saw someone just joined FUTUREIX 3000 Membership and I would like to register too!";
       window.open(buildWhatsAppLink(msg), "_blank", "noopener,noreferrer");
     }
   };

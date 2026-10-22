@@ -63,10 +63,7 @@ const structuredData = {
       name: pageTitle,
       description: pageDescription,
       isPartOf: {
-        "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
-        url: siteUrl,
-        name: "FUTUREIX",
       },
       about: {
         "@id": `${siteUrl}/#organization`,
@@ -92,24 +89,6 @@ const structuredData = {
           name: "About",
           item: `${siteUrl}/about`,
         },
-      ],
-    },
-    {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      name: "FUTUREIX",
-      url: siteUrl,
-      logo: `${siteUrl}/logo-full-lockup.png`,
-      description: pageDescription,
-      founder: {
-        "@type": "Person",
-        name: "Kartik Garhwal",
-      },
-      sameAs: [
-        "https://www.facebook.com/profile.php?id=61591765726522",
-        "https://www.instagram.com/futureix.in/",
-        "https://www.linkedin.com/company/futureix-in/about/?viewAsMember=true",
-        "https://www.youtube.com/@DigitalAdsIo-o7c/videos",
       ],
     },
   ],

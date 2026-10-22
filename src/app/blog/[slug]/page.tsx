@@ -467,7 +467,7 @@ export default async function ArticlePage({ params, searchParams }: Props) {
                   {post.relatedService.name}
                 </h3>
                 <p className="text-sm sm:text-base text-background/80 max-w-2xl leading-relaxed">
-                  {post.relatedService.description} Partner with Futureix to implement performance marketing, SEO, high-converting websites, and AI automation tailored to your business goals.
+                  {post.relatedService.description} Partner with FUTUREIX to implement performance marketing, SEO, high-converting websites, and AI automation tailored to your business goals.
                 </p>
                 <div className="pt-2 flex flex-wrap items-center gap-4">
                   <Link

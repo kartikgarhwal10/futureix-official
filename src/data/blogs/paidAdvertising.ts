@@ -2,9 +2,9 @@ import { BlogPost } from "./types";
 
 const defaultAuthor = {
   name: "Kartik Garhwal",
-  role: "Founder, Futureix",
+  role: "Founder, FUTUREIX",
   avatar: "KG",
-  bio: "Kartik Garhwal is the Founder of Futureix, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
+  bio: "Kartik Garhwal is the Founder of FUTUREIX, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
 };
 
 export const paidAdvertisingBlogs: BlogPost[] = [
@@ -85,7 +85,7 @@ export const paidAdvertisingBlogs: BlogPost[] = [
     relatedService: {
       name: "Paid Ads Management",
       href: "/#services",
-      description: "Scale your revenue with Futureix Meta & Google Ads services.",
+      description: "Scale your revenue with FUTUREIX Meta & Google Ads services.",
     },
   },
   {
@@ -155,7 +155,7 @@ export const paidAdvertisingBlogs: BlogPost[] = [
     relatedService: {
       name: "Google Ads Management",
       href: "/#services",
-      description: "Optimize your PPC campaigns for maximum ROI with Futureix.",
+      description: "Optimize your PPC campaigns for maximum ROI with FUTUREIX.",
     },
   },
   {
@@ -227,7 +227,7 @@ export const paidAdvertisingBlogs: BlogPost[] = [
     relatedService: {
       name: "Meta Lead Gen Architecture",
       href: "/#services",
-      description: "Rebuild your Facebook & Instagram lead pipeline with Futureix.",
+      description: "Rebuild your Facebook & Instagram lead pipeline with FUTUREIX.",
     },
   },
   {
@@ -299,7 +299,7 @@ export const paidAdvertisingBlogs: BlogPost[] = [
     relatedService: {
       name: "CPL Optimization Audit",
       href: "/#services",
-      description: "Let Futureix audit your paid ad campaigns to lower CPL and boost ROAS.",
+      description: "Let FUTUREIX audit your paid ad campaigns to lower CPL and boost ROAS.",
     },
   },
   {
@@ -370,7 +370,7 @@ export const paidAdvertisingBlogs: BlogPost[] = [
     relatedService: {
       name: "High-Converting PPC Pages",
       href: "/#services",
-      description: "Build custom Google Ads landing pages with Futureix design team.",
+      description: "Build custom Google Ads landing pages with FUTUREIX design team.",
     },
   },
   {
@@ -441,7 +441,7 @@ export const paidAdvertisingBlogs: BlogPost[] = [
     relatedService: {
       name: "Meta Landing Page Design",
       href: "/#services",
-      description: "Build conversion-optimized social ad landing pages with Futureix.",
+      description: "Build conversion-optimized social ad landing pages with FUTUREIX.",
     },
   },
 ];

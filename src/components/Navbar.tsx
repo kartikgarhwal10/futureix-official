@@ -109,7 +109,7 @@ export function Navbar() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           className="glass rounded-2xl flex items-center justify-between px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 md:py-3 gap-1.5 sm:gap-2"
         >
-          <Link href="/" className="group flex items-center gap-2 shrink-0">
+          <Link href="/" aria-label="FUTUREIX Official Website" className="group flex items-center gap-2 shrink-0">
             <Logo className="h-6 sm:h-7 md:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
           </Link>
 

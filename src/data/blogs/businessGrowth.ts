@@ -2,9 +2,9 @@ import { BlogPost } from "./types";
 
 const defaultAuthor = {
   name: "Kartik Garhwal",
-  role: "Founder, Futureix",
+  role: "Founder, FUTUREIX",
   avatar: "KG",
-  bio: "Kartik Garhwal is the Founder of Futureix, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
+  bio: "Kartik Garhwal is the Founder of FUTUREIX, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
 };
 
 export const businessGrowthBlogs: BlogPost[] = [
@@ -77,7 +77,7 @@ export const businessGrowthBlogs: BlogPost[] = [
     relatedService: {
       name: "Integrated Web & Social Growth",
       href: "/#services",
-      description: "Build an integrated digital ecosystem with Futureix growth team.",
+      description: "Build an integrated digital ecosystem with FUTUREIX growth team.",
     },
   },
   {
@@ -148,7 +148,7 @@ export const businessGrowthBlogs: BlogPost[] = [
     relatedService: {
       name: "Local Lead Systems",
       href: "/#services",
-      description: "Scale your local business inquiries with Futureix growth framework.",
+      description: "Scale your local business inquiries with FUTUREIX growth framework.",
     },
   },
   {
@@ -218,7 +218,7 @@ export const businessGrowthBlogs: BlogPost[] = [
     relatedService: {
       name: "Strategic Growth Consulting",
       href: "/#services",
-      description: "Map out your custom growth blueprint with Futureix strategy team.",
+      description: "Map out your custom growth blueprint with FUTUREIX strategy team.",
     },
   },
   {
@@ -288,7 +288,7 @@ export const businessGrowthBlogs: BlogPost[] = [
     relatedService: {
       name: "Full Funnel Architecture",
       href: "/#services",
-      description: "Build an end-to-end sales funnel with Futureix growth team.",
+      description: "Build an end-to-end sales funnel with FUTUREIX growth team.",
     },
   },
 ];

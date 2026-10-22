@@ -28,13 +28,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://futureix.in/";
+const siteUrl = "https://futureix.in";
 const siteTitle = "FUTUREIX | Digital Marketing & Website Development Agency";
 const siteDescription =
   "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://futureix.in"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: siteTitle,
     template: "%s · FUTUREIX",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   creator: "FUTUREIX",
   publisher: "FUTUREIX",
   alternates: {
-    canonical: "https://futureix.in/",
+    canonical: siteUrl,
   },
   verification: {
     google: "ZwGCPYomKyaqJp8bPSVhMMV8es1zKLidwMNLDoot0YI",
@@ -86,30 +86,46 @@ export const metadata: Metadata = {
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://futureix.in/#organization",
-  name: "FUTUREIX",
-  url: "https://futureix.in",
-  logo: "https://futureix.in/logo-full-lockup.png",
-  image: "https://futureix.in/opengraph-image",
-  description: siteDescription,
-  email: "hello@futureix.in",
-  telephone: "+91-73550-24385",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Jaipur",
-    addressRegion: "Rajasthan",
-    addressCountry: "IN",
-  },
-  founder: [
-    { "@type": "Person", name: "Kartik Garhwal" },
-    { "@type": "Person", name: "Mritunjay Pratap Singh" },
-  ],
-  sameAs: [
-    "https://www.facebook.com/profile.php?id=61591765726522",
-    "https://www.instagram.com/futureix.in/",
-    "https://www.linkedin.com/company/futureix-in/about/?viewAsMember=true",
-    "https://www.youtube.com/@DigitalAdsIo-o7c/videos",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://futureix.in/#website",
+      url: "https://futureix.in",
+      name: "FUTUREIX",
+      alternateName: ["futureix", "Futureix", "FUTUREIX Agency", "futureix.in"],
+      publisher: {
+        "@id": "https://futureix.in/#organization",
+      },
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://futureix.in/#organization",
+      name: "FUTUREIX",
+      legalName: "FUTUREIX",
+      url: "https://futureix.in",
+      logo: "https://futureix.in/logo-full-lockup.png",
+      image: "https://futureix.in/opengraph-image",
+      description: siteDescription,
+      email: "hello@futureix.in",
+      telephone: "+91-73550-24385",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Jaipur",
+        addressRegion: "Rajasthan",
+        addressCountry: "IN",
+      },
+      founder: [
+        { "@type": "Person", name: "Kartik Garhwal" },
+        { "@type": "Person", name: "Mritunjay Pratap Singh" },
+      ],
+      sameAs: [
+        "https://www.facebook.com/profile.php?id=61591765726522",
+        "https://www.instagram.com/futureix.in/",
+        "https://www.linkedin.com/company/futureix-in/about/?viewAsMember=true",
+        "https://www.youtube.com/@DigitalAdsIo-o7c/videos",
+      ],
+    },
   ],
 };
 

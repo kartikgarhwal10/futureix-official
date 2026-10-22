@@ -175,7 +175,7 @@ export default async function BlogPage() {
               <div className="md:col-span-8 space-y-4">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-lime/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-foreground">
                   <Layers size={12} />
-                  Futureix Core Services
+                  FUTUREIX Core Services
                 </span>
                 <h2 className="font-display text-2xl sm:text-3xl font-bold leading-tight">
                   Need Help Implementing These Growth Strategies in Your Business?

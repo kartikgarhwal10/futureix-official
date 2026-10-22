@@ -2,9 +2,9 @@ import { BlogPost } from "./types";
 
 const defaultAuthor = {
   name: "Kartik Garhwal",
-  role: "Founder, Futureix",
+  role: "Founder, FUTUREIX",
   avatar: "KG",
-  bio: "Kartik Garhwal is the Founder of Futureix, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
+  bio: "Kartik Garhwal is the Founder of FUTUREIX, a growth marketing and technology agency. He specializes in SEO, performance marketing, high-converting web applications, and business AI automation.",
 };
 
 export const digitalMarketingBlogs: BlogPost[] = [
@@ -217,7 +217,7 @@ export const digitalMarketingBlogs: BlogPost[] = [
         },
         {
           heading: "3. Asking the Right Questions During Pitch Meetings",
-          body: "Go beyond pricing during initial calls. Ask these direct questions:\n\n1. 'How do you verify whether a lead is qualified?'\n2. 'What happens if an ad campaign underperforms in week two?'\n3. 'How do your web developers collaborate with your paid media team?'\n\nAgencies like [Futureix](/) maintain transparent reporting dashboards and full account ownership for clients.",
+          body: "Go beyond pricing during initial calls. Ask these direct questions:\n\n1. 'How do you verify whether a lead is qualified?'\n2. 'What happens if an ad campaign underperforms in week two?'\n3. 'How do your web developers collaborate with your paid media team?'\n\nAgencies like [FUTUREIX](/) maintain transparent reporting dashboards and full account ownership for clients.",
         },
         {
           heading: "4. Reviewing Real Case Studies & Technical Work",
@@ -242,7 +242,7 @@ export const digitalMarketingBlogs: BlogPost[] = [
     relatedService: {
       name: "Full Growth Marketing",
       href: "/#services",
-      description: "Partner with Futureix for transparent, ROI-driven marketing execution.",
+      description: "Partner with FUTUREIX for transparent, ROI-driven marketing execution.",
     },
   },
   {
@@ -314,7 +314,7 @@ export const digitalMarketingBlogs: BlogPost[] = [
     relatedService: {
       name: "Analytics & Growth Audit",
       href: "/#services",
-      description: "Set up clean attribution tracking and performance reporting with Futureix.",
+      description: "Set up clean attribution tracking and performance reporting with FUTUREIX.",
     },
   },
   {
