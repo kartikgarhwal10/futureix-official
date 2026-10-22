@@ -17,17 +17,17 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { MembershipNotification } from "@/components/MembershipNotification";
 
 export const metadata: Metadata = {
-  title: "FUTUREIX | Digital Marketing & Website Development Agency",
+  title: "FUTUREIX | AI, Marketing & Technology",
   description:
-    "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.",
+    "FUTUREIX is an AI, marketing and technology company helping businesses grow with custom web development, performance marketing, SEO, and intelligent automation.",
   alternates: {
-    canonical: "https://futureix.in",
+    canonical: "https://futureix.in/",
   },
   openGraph: {
-    title: "FUTUREIX | Digital Marketing & Website Development Agency",
+    title: "FUTUREIX | AI, Marketing & Technology",
     description:
-      "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.",
-    url: "https://futureix.in",
+      "FUTUREIX is an AI, marketing and technology company helping businesses grow with custom web development, performance marketing, SEO, and intelligent automation.",
+    url: "https://futureix.in/",
     siteName: "FUTUREIX",
     locale: "en_IN",
     type: "website",

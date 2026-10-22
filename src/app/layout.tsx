@@ -29,9 +29,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = "https://futureix.in";
-const siteTitle = "FUTUREIX | Digital Marketing & Website Development Agency";
+const siteTitle = "FUTUREIX | AI, Marketing & Technology";
 const siteDescription =
-  "FUTUREIX helps businesses grow with website development, SEO, Meta Ads, Google Ads and AI automation. Explore our digital services and request a consultation.";
+  "FUTUREIX is an AI, marketing and technology company helping businesses grow with custom web development, performance marketing, SEO, and intelligent automation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -41,27 +41,27 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   keywords: [
-    "digital marketing agency Jaipur",
+    "FUTUREIX",
+    "AI marketing technology agency",
     "website development agency",
+    "digital marketing agency Jaipur",
     "Meta Ads management",
     "Google Ads agency India",
     "SEO services",
     "AI automation",
-    "AI SaaS solutions",
-    "FUTUREIX",
   ],
   authors: [{ name: "FUTUREIX" }],
   creator: "FUTUREIX",
   publisher: "FUTUREIX",
   alternates: {
-    canonical: siteUrl,
+    canonical: "https://futureix.in/",
   },
   verification: {
     google: "ZwGCPYomKyaqJp8bPSVhMMV8es1zKLidwMNLDoot0YI",
   },
   openGraph: {
     type: "website",
-    url: siteUrl,
+    url: "https://futureix.in/",
     siteName: "FUTUREIX",
     title: siteTitle,
     description: siteDescription,
@@ -84,49 +84,37 @@ export const metadata: Metadata = {
   },
 };
 
-const structuredData = {
+const organizationStructuredData = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://futureix.in/#website",
-      url: "https://futureix.in",
-      name: "FUTUREIX",
-      alternateName: ["futureix", "Futureix", "FUTUREIX Agency", "futureix.in"],
-      publisher: {
-        "@id": "https://futureix.in/#organization",
-      },
-      inLanguage: "en-IN",
-    },
-    {
-      "@type": ["Organization", "LocalBusiness"],
-      "@id": "https://futureix.in/#organization",
-      name: "FUTUREIX",
-      legalName: "FUTUREIX",
-      url: "https://futureix.in",
-      logo: "https://futureix.in/logo-full-lockup.png",
-      image: "https://futureix.in/opengraph-image",
-      description: siteDescription,
-      email: "hello@futureix.in",
-      telephone: "+91-73550-24385",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Jaipur",
-        addressRegion: "Rajasthan",
-        addressCountry: "IN",
-      },
-      founder: [
-        { "@type": "Person", name: "Kartik Garhwal" },
-        { "@type": "Person", name: "Mritunjay Pratap Singh" },
-      ],
-      sameAs: [
-        "https://www.facebook.com/profile.php?id=61591765726522",
-        "https://www.instagram.com/futureix.in/",
-        "https://www.linkedin.com/company/futureix-in/about/?viewAsMember=true",
-        "https://www.youtube.com/@DigitalAdsIo-o7c/videos",
-      ],
-    },
+  "@type": "Organization",
+  "@id": "https://futureix.in/#organization",
+  name: "FUTUREIX",
+  legalName: "FUTUREIX",
+  url: "https://futureix.in/",
+  logo: "https://futureix.in/logo-full-lockup.png",
+  image: "https://futureix.in/logo-full-lockup.png",
+  description: siteDescription,
+  email: "hello@futureix.in",
+  telephone: "+91-73550-24385",
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61591765726522",
+    "https://www.instagram.com/futureix.in/",
+    "https://www.linkedin.com/company/futureix-in/about/?viewAsMember=true",
+    "https://www.youtube.com/@DigitalAdsIo-o7c/videos",
   ],
+};
+
+const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://futureix.in/#website",
+  url: "https://futureix.in/",
+  name: "FUTUREIX",
+  alternateName: ["futureix", "Futureix", "FUTUREIX Agency", "futureix.in"],
+  publisher: {
+    "@id": "https://futureix.in/#organization",
+  },
+  inLanguage: "en-IN",
 };
 
 export default function RootLayout({
@@ -142,7 +130,11 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationStructuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
         />
         {children}
       </body>

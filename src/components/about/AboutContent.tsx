@@ -23,7 +23,6 @@ import {
   Search,
   Send,
   ShieldCheck,
-  Sparkles,
   Target,
   TrendingUp,
   Workflow,

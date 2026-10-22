@@ -138,7 +138,7 @@ export function Hero() {
           className="font-display text-[26px] xs:text-3xl sm:text-5xl lg:text-7xl leading-[1.12] sm:leading-[1.08] tracking-tight"
         >
           <span className="block text-xs sm:text-sm md:text-base font-mono-label uppercase tracking-widest text-signal mb-2.5 sm:mb-3 font-semibold">
-            FUTUREIX · AI, Marketing &amp; Technology Agency
+            FUTUREIX · AI, Marketing &amp; Technology
           </span>
           Digital Marketing &amp; Website Development for{" "}
           <span className="font-accent text-signal">Growing Businesses</span>

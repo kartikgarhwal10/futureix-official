@@ -391,9 +391,9 @@ export function Blogs() {
                     </span>
                   </div>
 
-                  <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground font-bold leading-tight">
+                  <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground font-bold leading-tight">
                     {activeArticle.title}
-                  </h1>
+                  </h2>
 
                   <p className="mt-4 text-base sm:text-lg text-muted leading-relaxed border-l-4 border-signal pl-4 italic">
                     {activeArticle.content.introduction}

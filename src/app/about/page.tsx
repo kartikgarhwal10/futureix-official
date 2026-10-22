@@ -81,7 +81,7 @@ const structuredData = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: siteUrl,
+          item: "https://futureix.in/",
         },
         {
           "@type": "ListItem",

@@ -115,7 +115,7 @@ export default async function BlogPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: siteUrl,
+        item: `${siteUrl}/`,
       },
       {
         "@type": "ListItem",

@@ -17,7 +17,7 @@ const quickLinks = [
   { label: "Services", href: "/#services" },
   { label: "Work From Home (₹3,000)", href: "/#wfh" },
   { label: "Blogs & Articles", href: "/#blogs" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const socials = [
@@ -35,8 +35,9 @@ export function Footer() {
           <div>
             <Logo className="h-8 w-auto" />
             <p className="mt-4 max-w-xs text-sm text-muted">
-              A futuristic AI-powered digital company combining technology, education, and
-              business growth.
+              <strong className="text-foreground font-semibold">FUTUREIX</strong> is an
+              AI, marketing and technology company helping businesses grow with custom
+              web development, performance marketing, and intelligent automation.
             </p>
             <div className="mt-5 space-y-2.5">
               <a

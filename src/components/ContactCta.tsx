@@ -83,15 +83,15 @@ export function ContactCta() {
           />
 
           <div className="flex justify-center">
-            <SectionTag number="07" label="Let's Connect" />
+            <SectionTag number="07" label="Contact FUTUREIX" />
           </div>
           <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
-            Ready To Build{" "}
-            <span className="font-accent text-signal">Something Amazing?</span>
+            Ready To Build With{" "}
+            <span className="font-accent text-signal">FUTUREIX?</span>
           </h2>
           <p className="mt-5 mx-auto max-w-xl text-sm sm:text-base text-muted leading-relaxed">
-            Get a free digital growth consultation and see how FUTUREIX can
-            accelerate your business or career.
+            Get a free consultation and discover how FUTUREIX accelerates your
+            business with AI, marketing, and modern technology.
           </p>
 
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto flex-wrap">
@@ -188,14 +188,14 @@ export function ContactCta() {
               </button>
 
               <span className="font-mono-label text-xs font-semibold uppercase tracking-widest text-signal">
-                Free Consultation
+                Connect With FUTUREIX
               </span>
               <h3 className="mt-2 font-display text-2xl tracking-tight">
-                Send Us Your Inquiry
+                Send FUTUREIX Your Inquiry
               </h3>
               <p className="mt-2 text-sm text-muted leading-relaxed">
-                Fill in your details and we&apos;ll open WhatsApp with your
-                message ready to send.
+                Fill in your details and connect directly with the FUTUREIX team
+                via WhatsApp.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-6 space-y-4 text-left">
