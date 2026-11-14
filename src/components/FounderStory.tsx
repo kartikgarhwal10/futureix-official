@@ -2,14 +2,30 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 import { SectionTag } from "@/components/SectionTag";
 
-const stories = [
+interface StoryItem {
+  id: string;
+  name: string;
+  initials: string;
+  photo: string;
+  alt?: string;
+  location: string;
+  paragraphs: string[];
+  mission: string;
+  responsibilities?: string[];
+  closingParagraphs: string[];
+  quote: string;
+}
+
+const stories: StoryItem[] = [
   {
     id: "kartik-garhwal",
     name: "Meet the Co-Founder – Kartik Garhwal",
     initials: "KG",
     photo: "/founders/kartik-garhwal.jpg",
+    alt: "Kartik Garhwal – Co-Founder & CEO at FUTUREIX",
     location: "Jaipur, Rajasthan",
     paragraphs: [
       "Every successful company begins with a vision. For FUTUREIX, that vision belongs to Kartik Garhwal, a passionate entrepreneur from Jaipur, Rajasthan, who believes that technology and digital skills should create real opportunities for everyone.",
@@ -30,6 +46,7 @@ const stories = [
     name: "Meet the Co-Founder – Mritunjay Pratap Singh",
     initials: "MS",
     photo: "/founders/mritunjay-pratap-singh.jpg",
+    alt: "Mritunjay Pratap Singh – Co-Founder at FUTUREIX",
     location: "Uttar Pradesh",
     paragraphs: [
       "Behind every great vision is a strong partner who shares the same passion for growth and innovation. Mritunjay Pratap Singh, the Co-Founder of FUTUREIX, comes from Uttar Pradesh and has always been driven by a desire to solve problems through technology and creativity.",
@@ -41,6 +58,34 @@ const stories = [
       "At FUTUREIX, Mritunjay focuses on strategic planning, business growth, creative direction, and delivering impactful digital experiences. His approach is centered on collaboration, continuous learning, and building long-term relationships with clients.",
     closingParagraphs: ["He believes that true success comes from teamwork, adaptability, and the willingness to embrace change."],
     quote: "Innovation begins where passion meets purpose.",
+  },
+  {
+    id: "parmendra-kumar",
+    name: "Meet the Sales Manager – Parmendra Kumar",
+    initials: "PK",
+    photo: "/founders/parmendra-kumar.jpg",
+    alt: "Parmendra Kumar – Sales Manager at FUTUREIX",
+    location: "Sales & Business Development · FUTUREIX",
+    paragraphs: [
+      "Parmendra Kumar leads Sales & Business Development at FUTUREIX, focusing on building strong client relationships, identifying new business opportunities, and driving sustainable business growth.",
+      "He plays an important role in connecting businesses with FUTUREIX's digital solutions by understanding their requirements and recommending the right strategies to help them grow in the digital landscape.",
+      "At FUTUREIX, Parmendra Kumar is responsible for driving business growth through strategic sales initiatives and meaningful client relationships. As Sales Manager, he focuses on understanding business challenges, identifying opportunities, and connecting clients with the right digital solutions.",
+    ],
+    mission:
+      "He believes that successful business development is not just about closing deals but about building trust, delivering value, and creating long-term partnerships.",
+    responsibilities: [
+      "Sales Strategy & Business Development",
+      "Client Acquisition & Relationship Management",
+      "Lead Generation & Conversion",
+      "Client Communication & Consultation",
+      "Business Partnerships & Growth Opportunities",
+      "Revenue Growth & Sales Management",
+      "Coordination with Marketing, Development and Creative Teams",
+    ],
+    closingParagraphs: [
+      "With a focus on communication, relationship building, and business development, he contributes to FUTUREIX's mission of helping businesses grow through technology, creativity, and innovation.",
+    ],
+    quote: "Building trust, delivering value, and creating long-term partnerships.",
   },
 ];
 
@@ -83,7 +128,7 @@ export function FounderStory() {
                   {story.photo ? (
                     <Image
                       src={story.photo}
-                      alt={story.name}
+                      alt={story.alt ?? story.name}
                       fill
                       sizes="56px"
                       className="object-cover"
@@ -111,6 +156,23 @@ export function FounderStory() {
               <blockquote className="mt-5 rounded-2xl border border-black/10 bg-black/[0.03] px-5 py-4 text-sm sm:text-base font-medium text-foreground">
                 {story.mission}
               </blockquote>
+
+              {story.responsibilities && story.responsibilities.length > 0 && (
+                <div className="mt-6 rounded-2xl border border-black/10 bg-black/[0.02] p-5 sm:p-6">
+                  <h4 className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-signal" />
+                    Key Responsibilities
+                  </h4>
+                  <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                    {story.responsibilities.map((resp, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted">
+                        <CheckCircle2 size={16} className="text-signal shrink-0 mt-0.5" />
+                        <span>{resp}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-4 space-y-4 text-sm sm:text-base text-muted leading-relaxed">
                 {story.closingParagraphs.map((p, idx) => (
