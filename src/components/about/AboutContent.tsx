@@ -887,11 +887,11 @@ export function AboutContent() {
               </a>
               <span className="flex items-center gap-1.5 text-center">
                 <MapPin size={14} className="text-signal shrink-0" />
-                <span><strong className="text-foreground font-semibold">Main Office:</strong> Jaipur, Rajasthan</span>
+                <span><strong className="text-foreground font-semibold">Main Office:</strong> Haidergarh, Uttar Pradesh</span>
               </span>
               <span className="flex items-center gap-1.5 text-center">
                 <MapPin size={14} className="text-signal shrink-0" />
-                <span><strong className="text-foreground font-semibold">Branch Office:</strong> Haidergarh, Uttar Pradesh</span>
+                <span><strong className="text-foreground font-semibold">Branch Office:</strong> Jaipur, Rajasthan</span>
               </span>
             </div>
           </motion.div>

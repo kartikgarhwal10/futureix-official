@@ -144,7 +144,7 @@ export function ContactPageContent() {
                   <MapPin size={16} className="text-signal shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-foreground block">Main Office (Headquarters)</span>
-                    Jaipur, Rajasthan, India
+                    Haidergarh, Barabanki, Uttar Pradesh, India
                   </div>
                 </div>
 
@@ -152,7 +152,7 @@ export function ContactPageContent() {
                   <MapPin size={16} className="text-signal shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-foreground block">Branch Office</span>
-                    Haidergarh, Barabanki, Uttar Pradesh, India
+                    Jaipur, Rajasthan, India
                   </div>
                 </div>
               </div>

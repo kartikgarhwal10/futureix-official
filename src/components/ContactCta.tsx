@@ -150,11 +150,11 @@ export function ContactCta() {
             </a>
             <span className="flex items-center gap-1.5 text-center">
               <MapPin size={14} className="text-signal shrink-0" />
-              <span><strong className="text-foreground font-semibold">Main Office:</strong> Jaipur, RJ</span>
+              <span><strong className="text-foreground font-semibold">Main Office:</strong> Haidergarh, UP</span>
             </span>
             <span className="flex items-center gap-1.5 text-center">
               <MapPin size={14} className="text-signal shrink-0" />
-              <span><strong className="text-foreground font-semibold">Branch:</strong> Haidergarh, UP</span>
+              <span><strong className="text-foreground font-semibold">Branch:</strong> Jaipur, RJ</span>
             </span>
           </div>
         </motion.div>

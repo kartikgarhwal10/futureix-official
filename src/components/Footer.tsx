@@ -59,15 +59,15 @@ export function Footer() {
               <div className="flex items-start gap-2 text-sm text-muted">
                 <MapPin size={14} className="text-signal shrink-0 mt-0.5" />
                 <span>
-                  <span className="font-semibold text-foreground">Main Office:</span> Jaipur,
-                  Rajasthan, India
+                  <span className="font-semibold text-foreground">Main Office:</span> Haidergarh,
+                  Barabanki, Uttar Pradesh
                 </span>
               </div>
               <div className="flex items-start gap-2 text-sm text-muted">
                 <MapPin size={14} className="text-signal shrink-0 mt-0.5" />
                 <span>
-                  <span className="font-semibold text-foreground">Branch Office:</span> Haidergarh,
-                  Barabanki, Uttar Pradesh
+                  <span className="font-semibold text-foreground">Branch Office:</span> Jaipur,
+                  Rajasthan, India
                 </span>
               </div>
             </div>
